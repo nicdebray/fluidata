@@ -1,0 +1,6 @@
+<%= simple_form_for @company do |f| %>
+<%= f.input :name, label: "Company's name" %>
+<%= f.input :address, label: "Company's address" %>
+<%= f.input :vat, label: "VAT number" %>
+<%= f.button :submit, class: "btn" %>
+<% end %>
