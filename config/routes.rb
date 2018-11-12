@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'text_blocks/new'
+  get 'text_blocks/create'
+  get 'text_blocks/update'
+  get 'text_blocks/edit'
+  get 'text_blocks/destroy'
+  get 'text_blocks/index'
+  get 'text_blocks/show'
   get 'company/index'
   get 'company/show'
   get 'company/new'
