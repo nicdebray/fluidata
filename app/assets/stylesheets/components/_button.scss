@@ -1,0 +1,102 @@
+// button common template
+
+.button {
+  padding: 5px 21px;
+  border-radius: 23px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.button:hover {
+  transition-duration: 0.5s;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+// yellow
+
+.button-yellow {
+  background-color: rgba(254,249,229,0.02);
+  border: solid 1px #F9D026;
+  color: #F9D026;
+}
+
+.button-yellow:hover {
+  color: #f8cb0d;
+  box-shadow: 1px 1px 7px #fbe070;
+}
+
+.button-yellow:focus {
+  color: #fbe070;
+}
+
+
+// red
+
+.button-red {
+  background-color: rgba(249,38,79,0.02);
+  border: solid 1px #f9264f;
+  color: #f9264f;
+}
+
+.button-red:hover {
+  color: #f80d3b;
+  box-shadow: 1px 1px 7px #fb708b;
+}
+
+.button-red:focus {
+  color: #fb708b;
+}
+
+
+// orange
+
+.button-orange {
+  background-color: rgba(249,102,38,0.02);
+  border: solid 1px #f96626;
+  color: #f96626;
+}
+
+.button-orange:hover {
+  color: #f8550d;
+  box-shadow: 1px 1px 7px #fb9a70;
+}
+
+.button-orange:focus {
+  color: #fb9a70;
+}
+
+
+// green
+
+.button-green {
+  background-color: rgba(38,249,102,0.02);
+  border: solid 1px #06e6ba;
+  color: #06e6ba;
+}
+
+.button-green:hover {
+  color: #05cda6;
+  box-shadow: 1px 1px 7px #26f9d0;
+}
+
+.button-green:focus {
+  color: #26f9d0;
+}
+
+// blue
+
+.button-blue {
+  background-color: rgba(38,185,249,0.02);
+  border: solid 1px #26b9f9;
+  color: #26b9f9;
+}
+
+.button-blue:hover {
+  color: #0db1f8;
+  box-shadow: 1px 1px 7px #70d1fb;
+}
+
+.button-blue:focus {
+  color: #70d1fb;
+}
