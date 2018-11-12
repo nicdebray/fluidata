@@ -1,4 +1,4 @@
-class CompanyController < ApplicationController
+class CompaniesController < ApplicationController
   before_action :company_find, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,6 +9,7 @@ class CompanyController < ApplicationController
   end
 
   def new
+    @company = Company.new
   end
 
   def create
