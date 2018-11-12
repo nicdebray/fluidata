@@ -1,6 +1,13 @@
 <h1>My Company: <%= @company.name %> </h1>
 
 <p>Informations</p>
-<div>@company.name</div>
-<div>@company.address</div>
-<div>@company.vat</div>
+<div><%= @company.name %></div>
+<div><%= @company.address %></div>
+<div><%= @company.vat %></div>
+
+<div>
+  <%= link_to "Delete", company_path,
+  method: :delete,
+  data: { confirm: "Are you sure?"} %>
+</div>
+<div> <%= link_to "Edit", edit_company_path %></div>
