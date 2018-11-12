@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to company_show(@company)
+      redirect_to company_path(@company)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
 
   def update
     if @company = Company.update(company_params)
-      redirect_to company_show_path(@company)
+      redirect_to company_path(@company)
     else
       render :new
     end
