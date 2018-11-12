@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'company/index'
-  get 'company/show'
-  get 'company/new'
-  get 'company/create'
-  get 'company/edit'
-  get 'company/update'
-  get 'company/destroy'
+
+  resources :companies
 
   devise_for :users
   root to: "pages#home"
