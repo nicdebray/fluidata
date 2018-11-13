@@ -8,6 +8,8 @@ class Company < ApplicationRecord
   validates :address, presence: true
   validates :vat, presence: true, uniqueness: true
 
+  has_one :user
+  
   mount_uploader :photo, PhotoUploader
 
   def self.call_ga
@@ -33,4 +35,5 @@ class Company < ApplicationRecord
     # response = analytics.batch_get_reports(request)
     # response.reports
   end
+
 end
