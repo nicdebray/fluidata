@@ -4,7 +4,7 @@
 <div><%= @company.name %></div>
 <div><%= @company.address %></div>
 <div><%= @company.vat %></div>
-
+<div><%= cl_image_tag @company.photo, height: 300, width: 400, crop: :fill %></div>
 <div>
   <%= link_to "Delete", company_path,
   method: :delete,
