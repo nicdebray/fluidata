@@ -17,8 +17,8 @@
 
 .button-yellow {
   background-color: rgba(254,249,229,0.02);
-  border: solid 1px #F9D026;
-  color: #F9D026;
+  border: solid 1px $yellow;
+  color: $yellow;
 }
 
 .button-yellow:hover {
@@ -35,8 +35,8 @@
 
 .button-red {
   background-color: rgba(249,38,79,0.02);
-  border: solid 1px #f9264f;
-  color: #f9264f;
+  border: solid 1px $red;
+  color: $red;
 }
 
 .button-red:hover {
@@ -53,8 +53,8 @@
 
 .button-orange {
   background-color: rgba(249,102,38,0.02);
-  border: solid 1px #f96626;
-  color: #f96626;
+  border: solid 1px $orange;
+  color: $orange;
 }
 
 .button-orange:hover {
@@ -71,8 +71,8 @@
 
 .button-green {
   background-color: rgba(38,249,102,0.02);
-  border: solid 1px #06e6ba;
-  color: #06e6ba;
+  border: solid 1px $green;
+  color: $green;
 }
 
 .button-green:hover {
@@ -88,8 +88,8 @@
 
 .button-blue {
   background-color: rgba(38,185,249,0.02);
-  border: solid 1px #26b9f9;
-  color: #26b9f9;
+  border: solid 1px $blue;
+  color: $blue;
 }
 
 .button-blue:hover {
