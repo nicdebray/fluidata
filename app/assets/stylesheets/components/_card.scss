@@ -1,1 +1,73 @@
-_card.scss
+.card-block {
+  height: 245px;
+  padding: 10px;
+}
+
+.card-block-design {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px #edecec;
+  height: 225px;
+}
+
+.card-block-design:hover {
+  transition-duration: 1s;
+  box-shadow: 0px 0px 8px #9a9a9a;
+}
+
+
+.card-img-bckgrd {
+  border-radius: 10px 10px 0px 0px;
+  height: 170px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.card-title {
+  position: absolute;
+  font-size: 24px;
+  top: 20px;
+  left: 20px;
+}
+
+.card-title a {
+  color: #ffffff;
+}
+
+.card-title:hover {
+  transition-duration: 0.5s;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.card-trash {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.card-trash a {
+  color: #DCDEE2;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 33px;
+  left: 20px;
+}
+
+.card-description a {
+  color: #8EC1D6;
+}
+
+.card-action {
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+}
+
+.card-action a {
+  color: #F9D026;
+}
