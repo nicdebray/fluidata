@@ -14,7 +14,13 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.0.9'
+
+gem 'google-api-client', :require => 'google/apis'
+gem 'googleauth'
+gem 'omniauth-google-oauth2'
+
 gem "pundit"
+
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
