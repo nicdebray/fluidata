@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_090104) do
+ActiveRecord::Schema.define(version: 2018_11_13_125905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2018_11_13_090104) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+  end
+
+  create_table "graph_blocks", force: :cascade do |t|
+    t.string "graph_type"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "order"
+    t.bigint "report_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_graph_blocks_on_report_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -57,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_090104) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "graph_blocks", "reports"
   add_foreign_key "reports", "users"
   add_foreign_key "text_blocks", "reports"
 end
