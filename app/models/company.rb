@@ -4,4 +4,5 @@ class Company < ApplicationRecord
   validates :vat, presence: true, uniqueness: true
 
   mount_uploader :photo, PhotoUploader
+  has_one :user
 end

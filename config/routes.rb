@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
-  get 'kpi_blocks/index'
-  get 'kpi_blocks/show'
-  get 'kpi_blocks/new'
-  get 'kpi_blocks/create'
-  get 'kpi_blocks/update'
-  get 'kpi_blocks/destroy'
   resources :companies
-
-
 
   devise_for :users do
     resources :reports do
