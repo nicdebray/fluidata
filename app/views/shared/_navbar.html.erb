@@ -1,4 +1,3 @@
-
 <div class="navbar-wagon">
   <!-- Logo -->
   <div href="/" class="navbar-wagon-brand">
@@ -8,22 +7,23 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to "Report", user_reports_path(:user_id), class: "navbar-wagon-item navbar-wagon-link" %>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Reports</a>
+    <%= link_to "Reports", user_reports_path(:user_id), class: "navbar-wagon-item navbar-wagon-link" %>
+
 
     <!-- Profile picture with dropdown list -->
-<div class="navbar-wagon-item">
+    <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" >
+        <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
           <li><%= link_to "Profile", user_path(:user_id) %></li>
           <li><%= link_to "New Report", user_reports_path(:user_id) %></li>
           <li><%= link_to "Signout", destroy_user_session_path(:user_id), method: :delete %> </li>
           <% else %>
           <%= link_to "Sign in", new_user_session_path %>
-        <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
   </div>
+</div>
