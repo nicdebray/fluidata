@@ -8,17 +8,21 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Demo</a>
+    <%= link_to "Report", user_reports_path(:user_id), class: "navbar-wagon-item navbar-wagon-link" %>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Reports</a>
 
     <!-- Profile picture with dropdown list -->
-    <div class="navbar-wagon-item">
+<div class="navbar-wagon-item">
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
+          <% if user_signed_in? %>
+          <li><%= link_to "Profile", user_path(:user_id) %></li>
+          <li><%= link_to "New Report", user_reports_path(:user_id) %></li>
+          <li><%= link_to "Signout", destroy_user_session_path(:user_id), method: :delete %> </li>
+          <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
         </ul>
       </div>
     </div>
