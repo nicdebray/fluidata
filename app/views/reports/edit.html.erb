@@ -1,9 +1,11 @@
-<h1>Edit your report name</h1>
+<h1>Edit your report</h1>
 
 
 <%= simple_form_for [current_user, @report] do |f| %>
 <%= f.input :name, label: "Name of the new report", error: 'Project name is mandatory, please specify one' %>
-
+<%= link_to "Add a text block |", new_user_report_text_block_path(current_user, @report) %>
+<%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, @report) %>
+<%= link_to "Add a graph block", new_user_report_graph_block_path(current_user, @report) %>
 <%= f.button :submit %>
 <% end %>
 
