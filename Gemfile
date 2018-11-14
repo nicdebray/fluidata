@@ -15,7 +15,7 @@ gem 'cloudinary'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.0.9'
 
-gem 'google-api-client', :require => 'google/apis'
+gem 'google-api-client', :require => 'google/apis/analyticsreporting_v4'
 gem 'googleauth'
 gem 'omniauth-google-oauth2'
 
