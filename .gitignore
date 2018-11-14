@@ -1,3 +1,4 @@
+service_account_cred.json
 .bundle
 log/*.log
 tmp/**/*
@@ -14,3 +15,4 @@ yarn-error.log
 .byebug_history
 .env*
 service_account_cred.json
+.env*
