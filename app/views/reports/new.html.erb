@@ -1,7 +1,10 @@
 <h1>Create a new report</h1>
-<p>Click the block you want to add</p>
+<p>Please choose a name for your new project:</p>
 
-<%= link_to "Add a text block |", new_user_report_text_block_path(current_user, :id) %>
-<%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, :id) %>
-<%= link_to "Add a graph block |", new_user_report_graph_block_path(current_user, :id) %>
+<%= simple_form_for [current_user, @report] do |f| %>
+<%= f.input :name, label: "Name of the new report", error: 'Project name is mandatory, please specify one' %>
+<%= f.button :submit %>
+<% end %>
+
+
 <%= link_to "Back to overview", user_reports_path(current_user) %>
