@@ -1,2 +1,11 @@
-<h1>Reports#edit</h1>
-<p>Find me in app/views/reports/edit.html.erb</p>
+<h1>Edit your report name</h1>
+
+
+<%= simple_form_for [current_user, @report] do |f| %>
+<%= f.input :name, label: "Name of the new report", error: 'Project name is mandatory, please specify one' %>
+
+<%= f.button :submit %>
+<% end %>
+
+<%= link_to "Back to overview", user_reports_path(current_user) %>
+

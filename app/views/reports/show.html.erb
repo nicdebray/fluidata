@@ -1,2 +1,20 @@
-<h1>Reports#show</h1>
-<p>Find me in app/views/reports/show.html.erb</p>
+<h1><%= @report.name %></h1>
+
+<%= link_to "Add a text block |", new_user_report_text_block_path(current_user, @report) %>
+<%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, @report) %>
+<%= link_to "Add a graph block", new_user_report_graph_block_path(current_user, @report) %>
+
+<% @report.text_blocks.each do |report| %>
+<%= report.content %>
+<% end %>
+
+<% @report.kpi_blocks.each do |report| %>
+<%= report.content %>
+<% end %>
+
+<% @report.graph_blocks.each do |report| %>
+<%= report.content %>
+<% end %>
+
+<%= link_to "Back to overview |", user_reports_path(current_user) %>
+<%= link_to "Edit the report", edit_user_report_path(current_user) %>
