@@ -1,7 +1,15 @@
 <div>
   <% if Report.last %>
   <% last_report = Report.last %>
-  <%= link_to "Card with last project", user_report_path(current_user.id, last_report) %>
+  <%= link_to "Card with last project |", user_report_path(current_user.id, last_report) %>
+  <% end %>
+  <% if @reports[-2] %>
+  <% second_last_report = @reports[-2] %>
+  <%= link_to "Card with second last project |", user_report_path(current_user.id, second_last_report) %>
+  <% end %>
+  <% if @reports[-3] %>
+  <% third_last_report = @reports[-3] %>
+  <%= link_to "Card with third last project", user_report_path(current_user.id, third_last_report) %>
   <% end %>
 </div>
 <div>
