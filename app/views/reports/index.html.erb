@@ -1,7 +1,8 @@
 <div>
+  <% if Report.last %>
   <% last_report = Report.last %>
   <%= link_to "Card with last project", user_report_path(current_user.id, last_report) %>
-
+  <% end %>
 </div>
 <div>
   <% @reports.each do |report| %>
