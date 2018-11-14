@@ -16,9 +16,7 @@
   required: true,
   autofocus: true
   %>
-  <%= f.input :department,
-  required: true,
-  autofocus: true
+  <%= f.input :department, collection: ["Management", "Finance", "IT", "Human Resources", "Production", "Marketing", "R&D", "Sales", "Purchase"]
   %>
   <%= f.input :admin,
   required: true,
