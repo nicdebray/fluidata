@@ -3,6 +3,7 @@ class TextBlocksController < ApplicationController
   before_action :set_text_block, only: [:show, :edit, :update, :destroy]
 
   def new
+    @report = Report.find(params[:report_id])
     @text_block = Text_block.new
   end
 

@@ -1,1 +1,13 @@
-<%= link_to "Card with last project", user_report_path(current_user.id, :id[-1]) %>
+<div>
+  <% last_report = Report.last %>
+  <%= link_to "Card with last project", user_report_path(current_user.id, last_report) %>
+
+</div>
+<div>
+  <% @reports.each do |report| %>
+  <%= report.name %>
+  <%= link_to "Edit", edit_user_report_path(current_user, report) %>
+  <% end %>
+</div>
+
+<%= link_to "Create a new project", new_user_report_path(current_user) %>

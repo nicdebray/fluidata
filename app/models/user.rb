@@ -6,6 +6,11 @@ class User < ApplicationRecord
   # validates :first_name, :last_name, :department, presence: true
   has_one :company
   has_many :reports
-  validates :department, inclusion: { in: %w(Management, Finance, IT, HR, Production, Marketing, R&D, Sales, Purchase) }
-  # validates :department, inclusion: %w(Management, Finance, IT, HR, Production, Marketing, R&D, Sales, Purchase)
+
+
+
+ # validates :department, inclusion: { in: %w(Management, Finance, IT, HR, Production, Marketing, R&D, Sales, Purchase) }
+
+ # validates :department, inclusion: %w(Management, Finance, IT, HR, Production, Marketing, R&D, Sales, Purchase)
+
 end
