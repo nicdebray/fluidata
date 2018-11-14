@@ -4,7 +4,6 @@ class GraphBlocksController < ApplicationController
 
   def new
     @graph_block = Graph_block.new
-    authorize @graph_block
   end
 
   def show
@@ -16,7 +15,6 @@ class GraphBlocksController < ApplicationController
   def create
     @graph_block = Graph_block.new(graph_block_params)
     @graph_block.user = current_user
-    authorize @graph_block
     if @graph_block.save
       redirect_to graph_blocks_path
     else
@@ -48,7 +46,6 @@ class GraphBlocksController < ApplicationController
 
   def set_graph_block
     @graph_block = Graph_block.find(params[:id])
-    authorize @graph_block
   end
 
   def graph_block_params

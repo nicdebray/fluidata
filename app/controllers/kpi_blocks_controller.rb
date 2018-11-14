@@ -4,7 +4,6 @@ class KpiBlocksController < ApplicationController
 
   def new
     @kpi_block = Kpi_block.new
-    authorize @kpi_block
   end
 
   def show
@@ -16,7 +15,6 @@ class KpiBlocksController < ApplicationController
   def create
     @kpi_block = Kpi_block.new(kpi_block_params)
     @kpi_block.user = current_user
-    authorize @kpi_block
     if @kpi_block.save
       redirect_to kpi_blocks_path
     else
@@ -48,7 +46,6 @@ class KpiBlocksController < ApplicationController
 
   def set_kpi_block
     @kpi_block = kpi_block.find(params[:id])
-    authorize @kpi_block
   end
 
   def kpi_block_params
