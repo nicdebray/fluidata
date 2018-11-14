@@ -18,7 +18,7 @@
           <% if user_signed_in? %>
           <li><%= link_to "New Company", new_company_path %></li>
           <li><%= link_to "Reporting", user_reports_path(:user_id) %></li>
-          <li><%= link_to "Signout", destroy_user_session_path(:user_id), method: :delete %> </li>
+          <li><%= link_to "Signout", destroy_user_session_path, method: :delete %> </li>
           <% else %>
           <%= link_to "Sign in", new_user_session_path %>
           <% end %>
