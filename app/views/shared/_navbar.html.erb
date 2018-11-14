@@ -16,8 +16,8 @@
         <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" >
         <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
-          <li><%= link_to "Profile", user_path(:user_id) %></li>
-          <li><%= link_to "New Report", user_reports_path(:user_id) %></li>
+          <li><%= link_to "New Company", new_company_path %></li>
+          <li><%= link_to "Reporting", user_reports_path(:user_id) %></li>
           <li><%= link_to "Signout", destroy_user_session_path(:user_id), method: :delete %> </li>
           <% else %>
           <%= link_to "Sign in", new_user_session_path %>
