@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!
   before_action :company_find, only: [:show, :edit, :update, :destroy]
 
   def index
