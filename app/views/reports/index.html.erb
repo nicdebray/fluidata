@@ -14,8 +14,9 @@
 </div>
 <div>
   <% @reports.each do |report| %>
-  <%= report.name %>
-  <%= link_to "Edit", edit_user_report_path(current_user, report) %>
+  <%= link_to report.name, user_report_path(current_user.id, report) %>
+  <%= link_to "| Edit | ", edit_user_report_path(current_user, report) %>
+  <%= link_to "Delete ||", user_report_path(current_user, report), method: :delete %>
   <% end %>
 </div>
 

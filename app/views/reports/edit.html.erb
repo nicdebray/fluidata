@@ -9,5 +9,31 @@
 <%= f.button :submit %>
 <% end %>
 
+<div>
+  <% @report.text_blocks.each do |report| %>
+  <%= report.content %>
+  <% end %>
+</div>
+<div>
+
+  <% @report.kpi_blocks.each do |report| %>
+  <%= report.kpi_type %>
+  <%= report.end_date %>
+  <%= report.start_date %>
+  <%= report.order %>
+  <% end %>
+</div>
+<div>
+
+  <% @report.graph_blocks.each do |report| %>
+  <%= report.graph_type %>
+  <%= report.end_date %>
+  <%= report.start_date %>
+  <%= report.order %>
+  <% end %>
+</div>
+
+<%= link_to "Delete this report |", user_report_path(current_user, @report), method: :delete %>
+
 <%= link_to "Back to overview", user_reports_path(current_user) %>
 

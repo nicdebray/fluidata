@@ -4,17 +4,32 @@
 <%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, @report) %>
 <%= link_to "Add a graph block", new_user_report_graph_block_path(current_user, @report) %>
 
-<% @report.text_blocks.each do |report| %>
-<%= report.content %>
-<% end %>
+<div>
+  <% @report.text_blocks.each do |report| %>
+  <%= report.content %>
+  <% end %>
+</div>
+<div>
 
-<% @report.kpi_blocks.each do |report| %>
-<%= report.content %>
-<% end %>
+  <% @report.kpi_blocks.each do |report| %>
+  <%= report.kpi_type %>
+  <%= report.end_date %>
+  <%= report.start_date %>
+  <%= report.order %>
+  <% end %>
+</div>
+<div>
 
-<% @report.graph_blocks.each do |report| %>
-<%= report.content %>
-<% end %>
+  <% @report.graph_blocks.each do |report| %>
+  <%= report.graph_type %>
+  <%= report.end_date %>
+  <%= report.start_date %>
+  <%= report.order %>
+  <% end %>
+</div>
 
-<%= link_to "Back to overview |", user_reports_path(current_user) %>
-<%= link_to "Edit the report", edit_user_report_path(current_user) %>
+<div>
+  <%= link_to "Back to overview |", user_reports_path(current_user) %>
+  <%= link_to "Edit the report", edit_user_report_path(current_user) %>
+  <%= link_to "Delete", user_report_path(current_user, @report), method: :delete %>
+</div>

@@ -4,20 +4,22 @@ class TextBlocksController < ApplicationController
 
   def new
     @report = Report.find(params[:report_id])
-    @text_block = Text_block.new
+    @text_block = TextBlock.new
   end
 
   def show
   end
 
   def index
+    @text_blocks = TextBlock.all
   end
 
   def create
-    @text_block = Text_block.new(text_block_params)
-    @text_block.user = current_user
+    @report = Report.find(params[:report_id])
+    @text_block = TextBlock.new(text_block_params)
+    @text_block.report = Report.find(params[:report_id])
     if @text_block.save
-      redirect_to text_blocks_path
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -25,7 +27,7 @@ class TextBlocksController < ApplicationController
 
   def update
     if @text_block.update(text_block_params)
-      redirect_to text_blocks_path(@text_block)
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -37,7 +39,7 @@ class TextBlocksController < ApplicationController
   def destroy
     @text_block.destroy
     if @text_block.destroy
-      redirect_to text_blocks_path
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -46,7 +48,7 @@ class TextBlocksController < ApplicationController
   private
 
   def set_text_block
-    @text_block = Text_block.find(params[:id])
+    @text_block = TextBlock.find(params[:id])
   end
 
   def text_block_params
