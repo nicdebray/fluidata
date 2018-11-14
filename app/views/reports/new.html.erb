@@ -1,2 +1,7 @@
-<h1>Reports#new</h1>
-<p>Find me in app/views/reports/new.html.erb</p>
+<h1>Create a new report</h1>
+<p>Click the block you want to add</p>
+
+<%= link_to "Add a text block |", new_user_report_text_block_path(current_user, :id) %>
+<%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, :id) %>
+<%= link_to "Add a graph block |", new_user_report_graph_block_path(current_user, :id) %>
+<%= link_to "Back to overview", user_reports_path(current_user) %>
