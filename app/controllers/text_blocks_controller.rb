@@ -4,7 +4,6 @@ class TextBlocksController < ApplicationController
 
   def new
     @text_block = Text_block.new
-    authorize @text_block
   end
 
   def show
@@ -16,7 +15,6 @@ class TextBlocksController < ApplicationController
   def create
     @text_block = Text_block.new(text_block_params)
     @text_block.user = current_user
-    authorize @text_block
     if @text_block.save
       redirect_to text_blocks_path
     else
@@ -48,7 +46,6 @@ class TextBlocksController < ApplicationController
 
   def set_text_block
     @text_block = Text_block.find(params[:id])
-    authorize @text_block
   end
 
   def text_block_params

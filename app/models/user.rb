@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_one :company
   has_many :reports
 
-  validates :department, inclusion: %w(Management, Finance, IT, HR, Production, Marketing, R&D, Sales, Purchase)
+  #validates :department, inclusion: %w(Management, Finance, IT, HR, Production, Marketing, R&D, Sales, Purchase)
 end
