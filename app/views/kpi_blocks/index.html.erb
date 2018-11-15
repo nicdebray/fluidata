@@ -1,2 +1,9 @@
 <h1>KpiBlocks#index</h1>
 <p>Find me in app/views/kpi_blocks/index.html.erb</p>
+
+<%= simple_form_for @company do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :kpi_type %>
+  <%= f.button :submit %>
+<% end %>
