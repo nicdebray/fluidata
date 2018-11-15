@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-    @kpi = Company.new.call_ga_v4(googleparams)
+    @kpi = Company.new.call_ga_v4
   end
 
   def show
