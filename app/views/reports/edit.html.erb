@@ -11,31 +11,31 @@
 
 <div>
   <% @report.text_blocks.each do |report| %>
-  <%= link_to report.content, user_report_text_block_path(current_user, report) %>
-  <%= link_to "| Edit | ", edit_user_report_text_block_path(current_user, report) %>
-  <%= link_to "Delete ||", user_report_text_block_path(current_user, report), method: :delete %>
+  <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
+  <%= link_to "| Edit | ", edit_user_report_text_block_path(current_user, @report, report) %>
+  <%= link_to "Delete ||", user_report_text_block_path(current_user, @report, report), method: :delete %>
   <% end %>
 </div>
 
 <div>
   <% @report.kpi_blocks.each do |report| %>
-  <%= link_to report.kpi_type, user_report_kpi_block_path(current_user, report) %>
+  <%= link_to report.kpi_type, user_report_kpi_block_path(current_user, @report, report) %>
   <%= report.end_date %>
   <%= report.start_date %>
   <%= report.order %>
-  <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, report) %>
-  <%= link_to "Delete ||", user_report_kpi_block_path(current_user, report), method: :delete %>
+  <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
+  <%= link_to "Delete ||", user_report_kpi_block_path(current_user, @report, report), method: :delete %>
   <% end %>
 </div>
 
 <div>
   <% @report.graph_blocks.each do |report| %>
-  <%= link_to report.graph_type, user_report_graph_block_path(current_user, report)%>
+  <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
   <%= report.end_date %>
   <%= report.start_date %>
   <%= report.order %>
-  <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, report) %>
-  <%= link_to "Delete ||", user_report_graph_block_path(current_user, report), method: :delete %>
+  <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
+  <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
   <% end %>
 </div>
 
