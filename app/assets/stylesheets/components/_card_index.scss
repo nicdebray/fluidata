@@ -1,0 +1,121 @@
+h1 {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none!important;
+}
+
+.push-footer {
+  min-height: 400px;
+}
+
+.container-fluid {
+  background-color: #FFFFFF;
+  margin: 0px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .right-top-index-rocket {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .right-top-index-rocket {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .right-top-index-rocket {
+    padding-bottom: 30px;
+    padding-top: 10px;
+  }
+}
+.bottom-index-rocket {
+  padding: 10px 0px 10px 10px;
+}
+
+
+
+.button {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: #404041;
+  //margin-top: 15px;
+}
+
+h1 {
+  margin: 0px;
+}
+
+
+
+// main content
+
+
+.border-bottom {
+  border-bottom: 4px solid #F74D37;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.message:last-child {
+  border-bottom: none;
+}
+.message-body {
+  flex-grow: 1;
+}
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.message-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.message-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.message-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.message-body p {
+  margin: 6px 0;
+}
+.message-status {
+  font-size: 14px;
+  font-weight: bold;
+
+}
+.edit-index {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  font-size: 14px;
+}

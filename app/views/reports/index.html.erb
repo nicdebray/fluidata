@@ -1,23 +1,96 @@
-<div>
-  <% if Report.last %>
-  <% last_report = Report.last %>
-  <%= link_to "Card with last project |", user_report_path(current_user.id, last_report) %>
-  <% end %>
-  <% if @reports[-2] %>
-  <% second_last_report = @reports[-2] %>
-  <%= link_to "Card with second last project |", user_report_path(current_user.id, second_last_report) %>
-  <% end %>
-  <% if @reports[-3] %>
-  <% third_last_report = @reports[-3] %>
-  <%= link_to "Card with third last project", user_report_path(current_user.id, third_last_report) %>
-  <% end %>
-</div>
-<div>
-  <% @reports.each do |report| %>
-  <%= link_to report.name, user_report_path(current_user.id, report) %>
-  <%= link_to "| Edit | ", edit_user_report_path(current_user, report) %>
-  <%= link_to "Delete ||", user_report_path(current_user, report), method: :delete %>
-  <% end %>
+<div class="container">
+  <div class="container-fluid">
+    <div class="row push-footer">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="card-block col-sm-6 col-md-3">
+            <% if @reports[-1] %>
+            <%= link_to user_report_path(current_user.id, @reports[-1]) do %>
+            <div class="card-block-design">
+              <div class="card-title"><%= @reports[-1].name %></div>
+              <div class="card-action button"> <%= link_to "Edit", edit_user_report_path(current_user, @reports[-1]) %></div>
+              <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports[-1]), method: :delete,
+              data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="card-block col-sm-6 col-md-3">
+          <% if @reports[-2] %>
+          <%= link_to user_report_path(current_user.id, @reports[-2]) do %>
+          <div class="card-block-design">
+            <div class="card-title"><%= @reports[-2].name %></div>
+            <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports[-2]) %> </div>
+            <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports[-2]), method: :delete,
+            data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="card-block col-sm-6 col-md-3">
+        <% if @reports[-3] %>
+        <%= link_to user_report_path(current_user.id, @reports[-3]) do %>
+        <div class="card-block-design">
+          <div class="card-title"><%= @reports[-3].name %></div>
+          <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports[-3]) %> </div>
+          <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports[-3]), method: :delete,
+          data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="card-block col-sm-6 col-md-3">
+      <%= link_to new_user_report_path(current_user) do %>
+      <div class="card-block-design">
+        <div class="card-title"> Create a new project </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Create a new project", new_user_report_path(current_user) %>
+
+
+<div class="container-fluid">
+  <div class="row push-footer">
+    <div class="col-lg-12">
+      <ul class="list-group">
+        <% @reports.each do |report| %>
+        <li class="list-group-item d-flex">
+          <div class="message">
+            <div>
+              <div>
+                <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
+                </p>
+              </div>
+              <div>
+                <p class="card-text">Last updated at <%= Report.order(:updated_at).pluck(:updated_at).last %></p>
+              </div>
+            </div>
+
+            <div class="badge_">
+              <div class="message-status">
+                <div class="card-trash">
+                  <i><%= link_to "",user_report_path(current_user, report), method: :delete,
+                  data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
+                </i>
+              </div>
+              <div>
+                <p class="price"><%= link_to "Edit", edit_user_report_path(current_user, report), class: "edit-index" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
