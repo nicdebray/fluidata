@@ -12,7 +12,7 @@ class Company < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  def call_ga_v4
+  def call_ga_v4(start_date, end_date, kpi_type)
     # Set the date range - this is always required for report requests
     date_range = Google::Apis::AnalyticsreportingV4::DateRange.new(
       start_date: "2018-08-01",
@@ -20,7 +20,7 @@ class Company < ApplicationRecord
       )
     # Set the metric
     metric = Google::Apis::AnalyticsreportingV4::Metric.new(
-      expression: "ga:users"
+      expression: "#{kpi_type}"
       )
     # Set the dimension
     dimension = Google::Apis::AnalyticsreportingV4::Dimension.new(

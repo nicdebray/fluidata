@@ -17,6 +17,7 @@ class KpiBlocksController < ApplicationController
     @report = Report.find(params[:report_id])
     @kpi_block = KpiBlock.new(kpi_block_params)
     @kpi_block.report = Report.find(params[:report_id])
+    # @kpi = KpiBlock.new.call_ga_v4(kpi_block_params)
     if @kpi_block.save
       redirect_to user_report_path(current_user, @report)
     else
@@ -47,6 +48,7 @@ class KpiBlocksController < ApplicationController
   private
 
   def set_kpi_block
+    @report = Report.find(params[:report_id])
     @kpi_block = KpiBlock.find(params[:id])
   end
 

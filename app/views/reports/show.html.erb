@@ -15,6 +15,7 @@
 <div>
   <% @report.kpi_blocks.each do |report| %>
   <%= link_to report.kpi_type, user_report_kpi_block_path(current_user, @report, report) %>
+  <%= report.call_ga_v4.reports.first.data.rows.first.dimensions.first %>
   <%= report.end_date %>
   <%= report.start_date %>
   <%= report.order %>
