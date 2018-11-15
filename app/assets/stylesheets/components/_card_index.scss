@@ -6,6 +6,15 @@ a {
   text-decoration: none!important;
 }
 
+.list-group-item{
+  margin-bottom: 10px !important;
+  height: 135px;
+}
+
+.text_index{
+  padding-left: 15px;
+}
+
 .push-footer {
   min-height: 400px;
 }
@@ -16,32 +25,6 @@ a {
   width: 100%;
   padding-bottom: 50px;
 }
-
-
-@media screen and (max-width: 768px) {
-  .right-top-index-rocket {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 615px) {
-  .right-top-index-rocket {
-    text-align: center;
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  .right-top-index-rocket {
-    padding-bottom: 30px;
-    padding-top: 10px;
-  }
-}
-.bottom-index-rocket {
-  padding: 10px 0px 10px 10px;
-}
-
-
 
 .button {
   text-align: center;
@@ -61,10 +44,6 @@ h1 {
 
 // main content
 
-
-.border-bottom {
-  border-bottom: 4px solid #F74D37;
-}
 
 .message {
   display: flex;
