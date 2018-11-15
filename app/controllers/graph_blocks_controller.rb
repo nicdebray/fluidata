@@ -47,6 +47,7 @@ class GraphBlocksController < ApplicationController
   private
 
   def set_graph_block
+    @report = Report.find(params[:report_id])
     @graph_block = GraphBlock.find(params[:id])
   end
 
