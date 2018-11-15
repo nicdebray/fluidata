@@ -48,6 +48,7 @@ class KpiBlocksController < ApplicationController
   private
 
   def set_kpi_block
+    @report = Report.find(params[:report_id])
     @kpi_block = KpiBlock.find(params[:id])
   end
 
