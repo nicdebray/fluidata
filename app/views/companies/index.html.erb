@@ -1,3 +1,8 @@
+<!-- random text to display on the page -->
 test
 
+<!-- generating a test graph -->
 <%= column_chart [["col 1", 2], [ "col2", 1], [ "col 4", 8]] %>
+
+<!-- testing the API to retrieve data -->
+<%= @kpi.reports.first.data.rows.first.dimensions.first %>

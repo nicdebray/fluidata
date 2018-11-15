@@ -16,7 +16,7 @@ class Company < ApplicationRecord
     # Set the date range - this is always required for report requests
     date_range = Google::Apis::AnalyticsreportingV4::DateRange.new(
       start_date: "2018-08-01",
-      end_date: "2018-10-31"
+      end_date: "2019-10-31"
       )
     # Set the metric
     metric = Google::Apis::AnalyticsreportingV4::Metric.new(
@@ -42,5 +42,4 @@ class Company < ApplicationRecord
     # Make API call.
     response = $google_client.batch_get_reports(request)
   end
-
 end
