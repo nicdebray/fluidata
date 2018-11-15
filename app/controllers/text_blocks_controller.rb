@@ -48,6 +48,7 @@ class TextBlocksController < ApplicationController
   private
 
   def set_text_block
+    @report = Report.find(params[:report_id])
     @text_block = TextBlock.find(params[:id])
   end
 
