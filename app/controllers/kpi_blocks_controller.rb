@@ -3,7 +3,8 @@ class KpiBlocksController < ApplicationController
   before_action :set_kpi_block, only: [:show, :edit, :update, :destroy]
 
   def new
-    @kpi_block = Kpi_block.new
+    @report = Report.find(params[:report_id])
+    @kpi_block = KpiBlock.new
   end
 
   def show
@@ -13,10 +14,11 @@ class KpiBlocksController < ApplicationController
   end
 
   def create
-    @kpi_block = Kpi_block.new(kpi_block_params)
-    @kpi_block.user = current_user
+    @report = Report.find(params[:report_id])
+    @kpi_block = KpiBlock.new(kpi_block_params)
+    @kpi_block.report = Report.find(params[:report_id])
     if @kpi_block.save
-      redirect_to kpi_blocks_path
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -24,7 +26,7 @@ class KpiBlocksController < ApplicationController
 
   def update
     if @kpi_block.update(kpi_block_params)
-      redirect_to kpi_blocks_path(@kpi_block)
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -36,7 +38,7 @@ class KpiBlocksController < ApplicationController
   def destroy
     @kpi_block.destroy
     if @kpi_block.destroy
-      redirect_to kpi_blocks_path
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end

@@ -3,7 +3,8 @@ class GraphBlocksController < ApplicationController
   before_action :set_graph_block, only: [:show, :edit, :update, :destroy]
 
   def new
-    @graph_block = Graph_block.new
+    @report = Report.find(params[:report_id])
+    @graph_block = GraphBlock.new
   end
 
   def show
@@ -13,10 +14,11 @@ class GraphBlocksController < ApplicationController
   end
 
   def create
-    @graph_block = Graph_block.new(graph_block_params)
-    @graph_block.user = current_user
+    @report = Report.find(params[:report_id])
+    @graph_block = GraphBlock.new(graph_block_params)
+    @graph_block.report = Report.find(params[:report_id])
     if @graph_block.save
-      redirect_to graph_blocks_path
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -24,7 +26,7 @@ class GraphBlocksController < ApplicationController
 
   def update
     if @graph_block.update(graph_block_params)
-      redirect_to graph_blocks_path(@graph_block)
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -36,7 +38,7 @@ class GraphBlocksController < ApplicationController
   def destroy
     @graph_block.destroy
     if @graph_block.destroy
-      redirect_to graph_blocks_path
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
@@ -45,11 +47,11 @@ class GraphBlocksController < ApplicationController
   private
 
   def set_graph_block
-    @graph_block = Graph_block.find(params[:id])
+    @graph_block = GraphBlock.find(params[:id])
   end
 
   def graph_block_params
-    params.require(:graph_block).permit(:content, :order, :report_id)
+    params.require(:graph_block).permit(:graph_type, :start_date, :end_date, :order, :report_id)
   end
 
 end

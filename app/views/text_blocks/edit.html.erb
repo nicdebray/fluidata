@@ -1,2 +1,9 @@
-<h1>TextBlocks#edit</h1>
-<p>Find me in app/views/text_blocks/edit.html.erb</p>
+<h1>Modify text</h1>
+
+<%= simple_form_for [current_user, @report, @text_block] do |f| %>
+<%= f.input :content, label: "What text do you want to add?" %>
+<%= f.input :order %>
+<%= f.button :submit %>
+<% end %>
+
+<%= link_to "Back to the report", user_report_path(current_user, @report) %>
