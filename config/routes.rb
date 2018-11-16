@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     resources :reports do
+      member do
+        get "toggle_starred",to: "reports#toggle_starred"
+      end
       resources :text_blocks
       resources :kpi_blocks
       resources :graph_blocks

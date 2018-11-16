@@ -4,12 +4,12 @@
       <div class="col-lg-12">
         <div class="row">
           <div class="card-block col-sm-6 col-md-3">
-            <% if @reports[-1] %>
-            <%= link_to user_report_path(current_user.id, @reports[-1]) do %>
+            <% if @reports1[-1] %>
+            <%= link_to user_report_path(current_user.id, @reports1[-1]) do %>
             <div class="card-block-design">
-              <div class="card-title"><%= @reports[-1].name %></div>
-              <div class="card-action button"> <%= link_to "Edit", edit_user_report_path(current_user, @reports[-1]) %></div>
-              <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports[-1]), method: :delete,
+              <div class="card-title"><%= @reports1[-1].name %></div>
+              <div class="card-action button"> <%= link_to "Edit", edit_user_report_path(current_user, @reports1[-1]) %></div>
+              <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-1]), method: :delete,
               data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
             </div>
           </div>
@@ -17,12 +17,12 @@
           <% end %>
         </div>
         <div class="card-block col-sm-6 col-md-3">
-          <% if @reports[-2] %>
-          <%= link_to user_report_path(current_user.id, @reports[-2]) do %>
+          <% if @reports1[-2] %>
+          <%= link_to user_report_path(current_user.id, @reports1[-2]) do %>
           <div class="card-block-design">
-            <div class="card-title"><%= @reports[-2].name %></div>
-            <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports[-2]) %> </div>
-            <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports[-2]), method: :delete,
+            <div class="card-title"><%= @reports1[-2].name %></div>
+            <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-2]) %> </div>
+            <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-2]), method: :delete,
             data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
           </div>
         </div>
@@ -30,12 +30,12 @@
         <% end %>
       </div>
       <div class="card-block col-sm-6 col-md-3">
-        <% if @reports[-3] %>
-        <%= link_to user_report_path(current_user.id, @reports[-3]) do %>
+        <% if @reports1[-3] %>
+        <%= link_to user_report_path(current_user.id, @reports1[-3]) do %>
         <div class="card-block-design">
-          <div class="card-title"><%= @reports[-3].name %></div>
-          <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports[-3]) %> </div>
-          <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports[-3]), method: :delete,
+          <div class="card-title"><%= @reports1[-3].name %></div>
+          <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-3]) %> </div>
+          <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-3]), method: :delete,
           data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
         </div>
       </div>
@@ -60,27 +60,29 @@
   <div class="row push-footer">
     <div class="col-lg-12">
       <ul class="list-group">
-        <% @reports.each do |report| %>
+        <% @reports1.each do |report| %>
         <div>
-          <% if report.starred = true%>
-          <div class="starred">
-            <li class="list-group-item d-flex card-block-design">
-
-
-
-              <div class="rating">
-               <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
-             </div>
-
-
-             <div class="message">
+          <li class="list-group-item d-flex card-block-design">
+            <div class="message">
               <div>
                 <div>
+
+
+                  <%= link_to toggle_starred_user_report_path(current_user, report), remote: true do %>
+
+                  <% if report.starred === true %>
+
+                  <span class="fa fa-star checked" id="star_toggle"></span>
+                  <% else %>
+                  <span class="fa fa-star"></span>
+                  <% end %>
+                  <% end %>
+
                   <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
                   </p>
                 </div>
                 <div>
-                  <p class="card-text">Last updated at <%= Report.order(:updated_at).pluck(:updated_at).last %></p>
+                  <p class="card-text">Last updated at <%= report.updated_at %></p>
                 </div>
               </div>
 
@@ -99,46 +101,58 @@
             </div>
           </div>
         </li>
+
+
       </div>
       <% end %>
+
+      <% @reports2.each do |report| %>
+      <div>
+        <li class="list-group-item d-flex card-block-design">
+          <div class="message">
+            <div>
+              <div>
+
+
+                <%= link_to toggle_starred_user_report_path(current_user, report), remote: true do %>
+
+                <% if report.starred === true %>
+
+                <span class="fa fa-star checked" id="star_toggle"></span>
+                <% else %>
+                <span class="fa fa-star"></span>
+                <% end %>
+                <% end %>
+
+                <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
+                </p>
+              </div>
+              <div>
+                <p class="card-text">Last updated at <%= report.updated_at%></p>
+              </div>
+            </div>
+
+            <div class="badge_">
+              <div class="message-status">
+                <div class="card-trash">
+                  <i><%= link_to "",user_report_path(current_user, report), method: :delete,
+                  data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
+                </i>
+              </div>
+              <div>
+                <p class="price"><%= link_to "Edit", edit_user_report_path(current_user, report), class: "edit-index" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+
     </div>
     <% end %>
-    <% @reports.each do |report| %>
-    <% if report.starred = false %>
-    <li class="list-group-item d-flex card-block-design">
-      <div class="rating">
-       <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
-     </div>
-     <div class="message">
-      <div>
-        <div>
-          <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
-          </p>
-        </div>
-        <div>
-          <p class="card-text">Last updated at <%= Report.order(:updated_at).pluck(:updated_at).last %></p>
-        </div>
-      </div>
 
-      <div class="badge_">
-        <div class="message-status">
-          <div class="card-trash">
-            <i><%= link_to "",user_report_path(current_user, report), method: :delete,
-            data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
-          </i>
-        </div>
-        <div>
-          <p class="price"><%= link_to "Edit", edit_user_report_path(current_user, report), class: "edit-index" %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</li>
-<% end %>
-
-<% end %>
-</ul>
+  </ul>
 </div>
 </div>
 </div>
