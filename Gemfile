@@ -17,6 +17,7 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'google-api-client', :require => 'google/apis/analyticsreporting_v4'
 gem 'googleauth'
+gem 'groupdate'
 gem 'highcharts-rails'
 gem 'omniauth-google-oauth2'
 
