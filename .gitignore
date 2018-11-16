@@ -1,4 +1,3 @@
-service_account_cred.json
 .bundle
 log/*.log
 tmp/**/*
