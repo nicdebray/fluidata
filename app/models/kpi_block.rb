@@ -5,7 +5,7 @@ class KpiBlock < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  def call_ga_v4
+  def call_ga_v4_kpi
     # Set the date range - this is always required for report requests
     date_range = Google::Apis::AnalyticsreportingV4::DateRange.new(
       start_date: start_date,

@@ -12,7 +12,7 @@
   <% end %>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <% @report.kpi_blocks.each do |report| %>
     <div class="card col-xs-12 col-sm-6 col-md-4">
@@ -20,7 +20,7 @@
       <%= report.start_date %>
       <%= report.end_date %>
       <div style="font-size: 32px;">
-        <%= report.call_ga_v4.reports.first.data.totals.first.values.first.to_i %>
+        <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
       </div>
       <%= report.order %>
       <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
@@ -30,19 +30,29 @@
   </div>
 </div>
 
-<div>
-  <% @report.graph_blocks.each do |report| %>
-  <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
-  <%= report.start_date %>
-  <%= report.end_date %>
-  <%= report.order %>
-  <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
-  <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
-  <% end %>
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <div>
+      <% @report.graph_blocks.each do |report| %>
+      <div class="card col-xs-12 col-sm-6 col-md-4">
+        <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
+        <%= report.start_date %>
+        <%= report.end_date %>
 
-<div>
-  <%= link_to "Back to overview |", user_reports_path(current_user) %>
-  <%= link_to "Edit the report", edit_user_report_path(current_user) %>
-  <%= link_to "Delete", user_report_path(current_user, @report), method: :delete %>
-</div>
+        <!-- <% report.call_ga_v4_graph %> -->
+        <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
+        <%= bar_chart values, width: "350px", height: "350px" %>
+
+
+        <%= report.order %>
+        <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
+        <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <%= link_to "Back to overview |", user_reports_path(current_user) %>
+      <%= link_to "Edit the report", edit_user_report_path(current_user) %>
+      <%= link_to "Delete", user_report_path(current_user, @report), method: :delete %>
+    </div>
