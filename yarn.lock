@@ -2416,6 +2416,11 @@ fastparse@^1.1.1:
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
   integrity sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==
 
+favorite-star@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/favorite-star/-/favorite-star-0.1.5.tgz#08234e9a6abac16c37f177bbe29be9075a3cd6e1"
+  integrity sha1-CCNOmmq6wWw38Xe74pvpB1o81uE=
+
 faye-websocket@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.10.0.tgz#4e492f8d04dfb6f89003507f6edbf2d501e7c6f4"

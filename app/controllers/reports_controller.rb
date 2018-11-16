@@ -11,8 +11,20 @@ class ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all
+    @reports1 = Report.where(starred: true).order(:updated_at)
+    @reports2 = Report.where(starred: false).order(:updated_at)
   end
+
+  def toggle_starred
+    set_report
+    @report.starred =  !@report.starred
+    @report.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
 
   def create
     @report = Report.new(report_params)
