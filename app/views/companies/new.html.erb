@@ -2,9 +2,3 @@
 
 <%= render 'shared/companies_form', company: @company %>
 
-<%= simple_form_for @company do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :expression %>
-  <%= f.button :submit %>
-<% end %>
