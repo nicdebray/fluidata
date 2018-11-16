@@ -54,7 +54,6 @@
 
 <div class="text_index">
   <h2> This is an overview of all your reports:</h2>
-
 </div>
 
 <div class="container-fluid">
@@ -62,36 +61,86 @@
     <div class="col-lg-12">
       <ul class="list-group">
         <% @reports.each do |report| %>
-        <li class="list-group-item d-flex card-block-design">
-          <div class="message">
-            <div>
-              <div>
-                <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
-                </p>
-              </div>
-              <div>
-                <p class="card-text">Last updated at <%= Report.order(:updated_at).pluck(:updated_at).last %></p>
-              </div>
-            </div>
+        <div>
+          <% if report.starred = true%>
+          <div class="starred">
+            <li class="list-group-item d-flex card-block-design">
 
-            <div class="badge_">
-              <div class="message-status">
-                <div class="card-trash">
-                  <i><%= link_to "",user_report_path(current_user, report), method: :delete,
-                  data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
-                </i>
-              </div>
+
+
+              <div class="rating">
+               <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
+             </div>
+
+
+             <div class="message">
               <div>
-                <p class="price"><%= link_to "Edit", edit_user_report_path(current_user, report), class: "edit-index" %>
-                </p>
+                <div>
+                  <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
+                  </p>
+                </div>
+                <div>
+                  <p class="card-text">Last updated at <%= Report.order(:updated_at).pluck(:updated_at).last %></p>
+                </div>
+              </div>
+
+              <div class="badge_">
+                <div class="message-status">
+                  <div class="card-trash">
+                    <i><%= link_to "",user_report_path(current_user, report), method: :delete,
+                    data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
+                  </i>
+                </div>
+                <div>
+                  <p class="price"><%= link_to "Edit", edit_user_report_path(current_user, report), class: "edit-index" %>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </div>
       <% end %>
-    </ul>
+    </div>
+    <% end %>
+    <% @reports.each do |report| %>
+    <% if report.starred = false %>
+    <li class="list-group-item d-flex card-block-design">
+      <div class="rating">
+       <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
+     </div>
+     <div class="message">
+      <div>
+        <div>
+          <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
+          </p>
+        </div>
+        <div>
+          <p class="card-text">Last updated at <%= Report.order(:updated_at).pluck(:updated_at).last %></p>
+        </div>
+      </div>
+
+      <div class="badge_">
+        <div class="message-status">
+          <div class="card-trash">
+            <i><%= link_to "",user_report_path(current_user, report), method: :delete,
+            data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
+          </i>
+        </div>
+        <div>
+          <p class="price"><%= link_to "Edit", edit_user_report_path(current_user, report), class: "edit-index" %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
+</li>
+<% end %>
+
+<% end %>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
