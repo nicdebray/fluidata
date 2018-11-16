@@ -32,27 +32,23 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div>
-      <% @report.graph_blocks.each do |report| %>
-      <div class="card col-xs-12 col-sm-6 col-md-4">
-        <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
-        <%= report.start_date %>
-        <%= report.end_date %>
-
-        <!-- <% report.call_ga_v4_graph %> -->
-        <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
-        <%= bar_chart values, width: "350px", height: "350px" %>
-
-
-        <%= report.order %>
-        <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
-        <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
-        <% end %>
-      </div>
+    <% @report.graph_blocks.each do |report| %>
+    <div class="card col-xs-12 col-sm-6 col-md-4">
+      <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
+      <%= report.start_date %>
+      <%= report.end_date %>
+      <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
+      <%= bar_chart values, width: "350px", height: "350px" %>
+      <%= report.order %>
+      <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
+      <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
     </div>
+    <% end %>
+  </div>
+</div>
 
-    <div>
-      <%= link_to "Back to overview |", user_reports_path(current_user) %>
-      <%= link_to "Edit the report", edit_user_report_path(current_user) %>
-      <%= link_to "Delete", user_report_path(current_user, @report), method: :delete %>
-    </div>
+<div>
+  <%= link_to "Back to overview |", user_reports_path(current_user) %>
+  <%= link_to "Edit the report", edit_user_report_path(current_user) %>
+  <%= link_to "Delete", user_report_path(current_user, @report), method: :delete %>
+</div>
