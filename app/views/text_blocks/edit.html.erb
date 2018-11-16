@@ -2,7 +2,6 @@
 
 <%= simple_form_for [current_user, @report, @text_block] do |f| %>
 <%= f.input :content, label: "What text do you want to add?" %>
-<%= f.input :order %>
 <%= f.button :submit %>
 <% end %>
 

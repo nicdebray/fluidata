@@ -3,7 +3,6 @@
 <%= simple_form_for [current_user, @report, @kpi_block] do |f| %>
 <%= f.input :start_date %>
 <%= f.input :end_date %>
-<%= f.input :order %>
 <%= f.input :kpi_type %>
 <%= f.button :submit %>
 <% end %>
