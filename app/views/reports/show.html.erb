@@ -4,12 +4,29 @@
 <%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, @report) %>
 <%= link_to "Add a graph block", new_user_report_graph_block_path(current_user, @report) %>
 
-<div>
-  <% @report.text_blocks.each do |report| %>
-  <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
-  <%= link_to "| Edit | ", edit_user_report_text_block_path(current_user, @report, report) %>
-  <%= link_to "Delete ||", user_report_text_block_path(current_user, @report, report), method: :delete %>
-  <% end %>
+<div class="container-fluid">
+  <div class="col-lg-12">
+    <ul class="list-group padding-top-show">
+      <% @report.text_blocks.each do |report| %>
+        <li class="list-group-item d-flex card-block-design">
+          <div class="message">
+            <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
+            <div class="badge_">
+              <div class="message-status">
+                <div class="card-trash">
+                  <i><%= link_to "",user_report_text_block_path(current_user, @report, report), method: :delete,
+                    data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
+                  </i>
+                </div>
+                <p class="price"><%= link_to "Edit", edit_user_report_text_block_path(current_user, @report, report), class: "edit-index" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <div class="container-fluid">
