@@ -55,7 +55,7 @@
       <%= report.start_date %>
       <%= report.end_date %>
       <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
-      <%= column_chart values, width: "350px", height: "350px" %>
+      <%= column_chart values %>
       <%= report.order %>
       <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
       <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
