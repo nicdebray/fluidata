@@ -27,8 +27,8 @@
 <div>
   <% @report.graph_blocks.each do |report| %>
   <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
-  <%= report.end_date %>
   <%= report.start_date %>
+  <%= report.end_date %>
   <%= report.order %>
   <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
   <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
