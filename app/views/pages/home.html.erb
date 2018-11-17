@@ -1,15 +1,21 @@
 <div class="banner" style="background-image: linear-gradient(rgb(36, 107, 173) 0px, rgb(0, 200, 200) 100%);">
   <div class="banner-content">
-    <h1>Fluidata</h1>
-    <p>Smart fluid reporting</p>
-    <%= link_to "Start now", user_reports_path(:user_id), class: "button button-yellow" %>
+    <div class="homepage-branding">
+      <h1>Fluidata</h1>
+      <p id="headline-tagline">Smart fluid reporting</p>
+      <p id="headline-description">Take better desions for your business. Visualize what matters, sens the pulse of any of your activity.</p>
+
+      <div id="headline-button-pos"> <%= link_to "Start now", user_reports_path(:user_id), class: "button button-yellow", id: "headline-button" %>
+      </div>
+    </div>
     <div class="business-icons">
-      <div class="email-icon"><%= image_tag ("icons/email.svg") %></div>
-      <div class="light-bulb-icon"><%= image_tag ("icons/light-bulb.svg") %></div>
-      <div class="target-icon"><%= image_tag ("icons/target.svg") %></div>
-      <div class="paper-plane-icon"><%= image_tag ("icons/paper-plane.svg") %></div>
-      <div class="money-1-icon"><%= image_tag ("icons/money-1.svg") %></div>
-      <div class="news-icon"><%= image_tag ("icons/news.svg") %></div>
+      <div class="homepage-icons" id="email-icon"><%= image_tag ("icons/email.svg") %></div>
+      <div class="homepage-icons" id="light-bulb-icon"><%= image_tag ("icons/light-bulb.svg") %></div>
+      <div class="homepage-icons" id="target-icon"><%= image_tag ("icons/target.svg") %></div>
+      <div class="homepage-icons" id="paper-plane-icon"><%= image_tag ("icons/paper-plane.svg") %></div>
+      <div class="homepage-icons" id="money-1-icon"><%= image_tag ("icons/money-1.svg") %></div>
+      <div class="homepage-icons" id="news-icon"><%= image_tag ("icons/news.svg") %></div>
+      <div class="homepage-icons" id="coffee-cup-icon"><%= image_tag ("icons/coffee-cup.svg") %></div>
     </div>
     <div class="homepage-graph">
       <%= image_tag("homepage_graph.png", width: "300px", height: "300px", alt: "white graph") %>
