@@ -14,11 +14,9 @@
 <body>
   <div> <%= render 'shared/navbar' %> </div>
   <%= javascript_pack_tag 'application' %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= render 'shared/flashes' %>
   <%= yield %>
   <div> <%= render 'shared/footer' %> </div>
-
 </body>
 </html>
 

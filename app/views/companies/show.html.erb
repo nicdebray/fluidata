@@ -1,13 +1,48 @@
-<h1>My Company: <%= @company.name %> </h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="top-index-rocket">
+        <div class="col-xs-12 col-sm-6">
+          <div class="left-top-navbar-action">
+            <div class="icon-title">
+              <i class="fas fa-user-astronaut"></i>
+            </div>
+            <div class="title border-bottom">
+              <h1>All Reports</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="right-top-navbar-action">
+            <div class="title">
+              <%= link_to "Create New Report", new_user_report_path(current_user), class: "button" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="left-sidebar d-none d-md-block col-md-2">
+      <div><p>texte 1</p></div>
+      <div><p>texte 2</p></div>
+      <div><p>texte 3</p></div>
+    </div>
+    <div class="right-maincontent col-xs-12 col-md-10"><h1>My Company: <%= @company.name %> </h1>
 
-<p>Informations</p>
-<div><%= @company.name %></div>
-<div><%= @company.address %></div>
-<div><%= @company.vat %></div>
-<div><%= cl_image_tag @company.photo, height: 300, width: 400, crop: :fill %></div>
-<div>
-  <%= link_to "Delete", company_path,
-  method: :delete,
-  data: { confirm: "Are you sure?"} %>
-</div>
-<div> <%= link_to "Edit", edit_company_path %></div>
+      <p>Informations</p>
+      <div><%= @company.name %></div>
+      <div><%= @company.address %></div>
+      <div><%= @company.vat %></div>
+      <div><%= cl_image_tag @company.photo, height: 300, width: 400 %></div>
+      <div><%= @company.photo %></div>
+      <div>
+        <%= link_to "Delete", company_path,
+        method: :delete,
+        data: { confirm: "Are you sure?"} %>
+      </div>
+      <div> <%= link_to "Edit", edit_company_path %></div></div>
+    </div>
+  </div>
+
+
