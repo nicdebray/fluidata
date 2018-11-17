@@ -1,1 +1,81 @@
-// Specific CSS for your home-page
+.homepage-branding {
+  position: absolute;
+  top: 180px;
+  left: 125px;
+  text-align: left;
+  width: 500px;
+}
+
+#headline-tagline {
+  margin-bottom: 5px;
+}
+
+#headline-description {
+  font-size: 20px;
+}
+
+// #headline-button-pos {
+//   position: absolute;
+//   top: 200px;
+//   left: 100px;
+// }
+
+#headline-button {
+  font-size: 22px;
+}
+
+// homepage graph image
+
+.homepage-graph {
+  position: absolute;
+  bottom: -20px;
+  right: 40px;
+}
+
+// homepage icons css
+
+.business-icons {
+  position: absolute;
+  bottom: 75px;
+  right: 560px;
+}
+
+.homepage-icons {
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+
+#light-bulb-icon {
+  bottom: -40px;
+  right: -13px;
+}
+
+#email-icon {
+  left: 50px;
+  bottom: -22px;
+}
+
+#news-icon {
+  bottom: 33px;
+  left: 55px;
+}
+
+#money-1-icon {
+  bottom: 50px;
+  left: 135px;
+}
+
+#paper-plane-icon {
+  bottom: 9px;
+  left: 92px;
+}
+
+#target-icon {
+  bottom: 0px;
+  left: 160px;
+}
+
+#coffee-cup-icon {
+  left: 118px;
+}
