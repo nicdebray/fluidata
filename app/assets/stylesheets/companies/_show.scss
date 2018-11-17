@@ -1,3 +1,37 @@
 .container-fluid {
   margin-top: 69px;
+  padding-top: 5px;
+}
+
+#icon-company-profile {
+  width: 25px;
+  height: 25px;
+}
+
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left-top-navbar{
+  display: flex;
+  align-items: center;
+}
+
+.right-top-navbar{
+ display: flex;
+ justify-content: space-between;
+ text-align: right;
+}
+
+.left-top-navbar-title {
+  margin-left: 15px;
+}
+
+.right-top-navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 15px;
 }
