@@ -14,7 +14,7 @@
         </div>
         <div class="col-xs-12 col-sm-6">
           <div class="right-top-navbar">
-            <div class="title">
+            <div class="">
               <%= link_to "Create New Report", new_user_report_path(current_user), class: "button-green button" %>
             </div>
           </div>
@@ -22,11 +22,13 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row maincontentandnav">
     <div class="left-sidebar d-none d-md-block col-md-2">
-      <div><p>texte 1</p></div>
-      <div><p>texte 2</p></div>
-      <div><p>texte 3</p></div>
+      <div class="left-sidebar-menu sticky-top sticky-offset">
+        <div><p>texte 1</p></div>
+        <div><p>texte 2</p></div>
+        <div><p>texte 3</p></div>
+      </div>
     </div>
     <div class="right-maincontent col-xs-12 col-md-10"><h1>My Company: <%= @company.name %> </h1>
 
