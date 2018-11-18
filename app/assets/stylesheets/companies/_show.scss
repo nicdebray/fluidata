@@ -45,4 +45,59 @@
   top: 85px;
 }
 
+// mainhomepagecontainer
+
+.container-fluid {
+  margin-top: 0px;
+}
+
+.homepage-texte-container {
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-top: 30px;
+  width: 100%;
+}
+
+.hp-texte-usp1 {
+  text-align: right;
+}
+
+.hp-usp1-title-block {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#hp-usp1-title {
+  color: $green;
+  font-weight: bolder;
+  padding-top: 25px;
+}
+
+#stats-icon-usp1-title {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+#laptop-icon-usp1-title {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.hp-img-usp1 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 15px;
+  padding-right: 30px;
+}
+
+#laptop-icon-usp1-img {
+  width: 300px;
+  height: 300px;
+}
 
