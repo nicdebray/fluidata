@@ -113,7 +113,7 @@
   padding: 30px 20px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .hp-kpi-card {
@@ -121,6 +121,7 @@
   margin: 5px;
   height: 300px;
   max-width: 350px;
+  min-width: 300px;
 }
 
 .hp-kpi-card-title {
@@ -128,7 +129,7 @@
   padding-bottom: 10px;
 }
 
-.hp-kpi-name {
+.hp-block-name {
   color: $green;
   font-weight: bolder;
   font-size: 22px;
@@ -142,4 +143,67 @@
 .hp-kpi-number {
   padding-top: 10px;
   font-size: 48px;
+}
+
+.hp-graph-area-chart {
+  padding-top: 20px;
+}
+
+// testimony block
+
+.hp-testimony {
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 100%;
+}
+
+.hp-testimony-picture {
+  background-color: $yellow;
+  padding: 50px 10px;
+  border-radius: 85% 0% 150% 31%;
+  display: flex;
+}
+
+#hp-testimony-picture-image {
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+#hp-testimony-name {
+  font-size: 28px;
+  font-weight: bolder;
+  color: white;
+  margin-bottom: 0px;
+}
+
+#hp-testimony-title {
+  font-size: 20px;
+  color: white;
+}
+
+.hp-testimoty-text {
+  padding-left: 50px;
+  padding-top: 10px;
+}
+
+.hp-testimony-left-quote {
+  margin-bottom: 10px;
+}
+
+// bottom CTA block
+
+.hp-bottom-cta {
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 100%;
+}
+
+.hp-bottom-cta-content {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#hp-bottom-cta-btn {
+  font-size: 32px;
 }

@@ -37,21 +37,56 @@
     </div>
   </div>
   <div class="row hp-kpi-blocks">
-    <div class="hp-kpi-card card-block-design col-xs-12 col-sm-4">
+    <div class="hp-kpi-card card-block-design col-sm-12 col-md-6">
       <h4 class="hp-kpi-card-title">Tell your story</h4>
       <p>"We saw a growth in sales following our strong marketing campaign. The message resonnates to our customers."</p>
     </div>
-    <div class="hp-kpi-card card-block-design col-xs-12 col-sm-4">
+    <div class="hp-kpi-card card-block-design col-sm-12 col-md-6">
       <h4 class="hp-kpi-card-title">Quantify your story</h4>
       <div class="hp-kpi">
-        <div class="hp-kpi-name">Revenue</div>
+        <div class="hp-block-name">Revenue</div>
         <div class="hp-kpi-period">10/10/2018 - 11/11/2018</div>
         <div class="hp-kpi-number">1.250.080€</div>
       </div>
     </div>
-    <div class="hp-kpi-card card-block-design col-xs-12 col-sm-4">
+    <div class="hp-kpi-card card-block-design col-sm-12 col-md-6">
       <h4 class="hp-kpi-card-title">Visualize your story</h4>
-      <div class="hp-kpi-graph"></div>
+      <div class="hp-kpi-graph">
+        <div class="hp-block-name">Revenue</div>
+        <div class="hp-graph-area-chart">
+          <%= image_tag ("area-chart.png"), height: "100", width: "325" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row hp-testimony">
+    <div class="hp-testimony-picture col-xs-12 col-sm-6">
+      <div> <%= image_tag ("https://kitt.lewagon.com/placeholder/users/ssaunier"), id: "hp-testimony-picture-image", width: "200px", height: "200px" %>
+      </div>
+      <div id="hp-testimony-name-title">
+        <p id="hp-testimony-name">Seb Saus</p>
+        <p id="hp-testimony-title">Train Rails Builder Officer</p>
+      </div>
+    </div>
+    <div class="hp-testimoty-text col-xs-12 col-sm-6">
+      <div class="hp-testimony-left-quote">
+        <%= image_tag ("icons/left-quote.svg"), height: "50", width: "50" %>
+      </div>
+      <div class="hp-testimony-quote">
+        <p>Understanding what going is key to take better decision. Leveraging our data allows us to build amazing boilerplates, ticket systems. We have not the best flash cards in the world according to Legorafi!</p>
+      </div>
+      <div class="hp-testimony-right-quote">
+        <%= image_tag ("icons/right-quote.svg"), height: "50", width: "50" %>
+      </div>
+    </div>
+  </div>
+  <div class="row hp-bottom-cta">
+    <div class="hp-bottom-cta-content col-lg-12">
+      <div>
+        <div><p>Request your free trial</p></div>
+        <div> <%= link_to "Start now", user_reports_path(:user_id), class: "button button-green", id: "hp-bottom-cta-btn" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
