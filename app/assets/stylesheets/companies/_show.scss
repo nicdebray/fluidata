@@ -37,8 +37,10 @@
   padding-top: 15px;
 }
 
+// main content
+
 .maincontentandnav {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .sticky-offset {
@@ -54,4 +56,16 @@
 #left-sidebar-toggle-left-arrow {
   height: 20px;
   width: 20px;
+}
+
+.left-sidebar-menu-item {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.left-sidebar-menu-icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
 }
