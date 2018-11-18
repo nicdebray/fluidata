@@ -12,8 +12,8 @@
   <%= javascript_include_tag 'application' %>
 </head>
 <body>
-  <div> <%= render 'shared/navbar' %> </div>
   <%= javascript_pack_tag 'application' %>
+  <div> <%= render 'shared/navbar' %> </div>
   <%= render 'shared/flashes' %>
   <%= yield %>
   <div> <%= render 'shared/footer' %> </div>

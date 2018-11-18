@@ -23,28 +23,34 @@
     </div>
   </div>
   <div class="row maincontentandnav">
-    <div class="left-sidebar d-none d-md-block col-md-2">
+    <div class="left-sidebar d-none d-md-block col-md-2" id="left-sidebar-menu-toggle">
       <div class="left-sidebar-menu sticky-top sticky-offset">
         <div><p>texte 1</p></div>
         <div><p>texte 2</p></div>
         <div><p>texte 3</p></div>
       </div>
     </div>
-    <div class="right-maincontent col-xs-12 col-md-10"><h1>My Company: <%= @company.name %> </h1>
-
-      <p>Informations</p>
-      <div><%= @company.name %></div>
-      <div><%= @company.address %></div>
-      <div><%= @company.vat %></div>
-      <div><%= cl_image_tag @company.photo, height: 300, width: 400 %></div>
-      <div><%= @company.photo %></div>
-      <div>
-        <%= link_to "Delete", company_path,
-        method: :delete,
-        data: { confirm: "Are you sure?"} %>
+    <div class="right-maincontent col-xs-12 col-md-10">
+      <div id="left-sidebar-toggle">
+        <%= image_tag("icons/sidebar-left-arrow.svg", id: "left-sidebar-toggle-left-arrow") %>
       </div>
-      <div> <%= link_to "Edit", edit_company_path %></div></div>
+
+      <div>
+        <h1>My Company: <%= @company.name %> </h1>
+
+        <p>Informations</p>
+        <div><%= @company.name %></div>
+        <div><%= @company.address %></div>
+        <div><%= @company.vat %></div>
+        <div><%= cl_image_tag @company.photo, height: 300, width: 400 %></div>
+        <div><%= @company.photo %></div>
+        <div>
+          <%= link_to "Delete", company_path,
+          method: :delete,
+          data: { confirm: "Are you sure?"} %>
+        </div>
+        <div> <%= link_to "Edit", edit_company_path %></div></div>
+      </div>
     </div>
   </div>
-
 

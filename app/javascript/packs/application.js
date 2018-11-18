@@ -24,3 +24,19 @@ function setDropDown() {
   })
 
 }
+
+
+hideSidebarMenu()
+
+function hideSidebarMenu() {
+
+  let arrow = document.querySelector("#left-sidebar-toggle-left-arrow")
+
+  arrow.addEventListener( "click", function() {
+    let sbm = document.querySelector(".left-sidebar")
+    // sbm.classList.toogle("hide");
+    sbm.classList.remove("d-md-block");
+
+  })
+
+}

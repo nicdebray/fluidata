@@ -79,3 +79,168 @@
 #coffee-cup-icon {
   left: 118px;
 }
+
+// Main Homepage Container
+
+.homepage-container-fluid {
+  margin-top: 0px !important;
+}
+
+// USP1 block
+
+.homepage-texte-container {
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.hp-texte-usp1 {
+  text-align: right;
+}
+
+.hp-usp1-title-block {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#hp-usp1-title {
+  color: $green;
+  font-weight: bolder;
+  padding-top: 25px;
+}
+
+#stats-icon-usp1-title {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+#laptop-icon-usp1-title {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.hp-img-usp1 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 15px;
+  padding-right: 30px;
+}
+
+#laptop-icon-usp1-img {
+  width: 300px;
+  height: 300px;
+}
+
+#usp1-link {
+  font-size: 16px;
+}
+
+// KPI block
+
+.hp-kpi-blocks {
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.hp-kpi-card {
+  padding: 15px;
+  margin: 5px;
+  height: 300px;
+  max-width: 350px;
+  min-width: 300px;
+}
+
+.hp-kpi-card-title {
+  color: $orange;
+  padding-bottom: 10px;
+}
+
+.hp-block-name {
+  color: $green;
+  font-weight: bolder;
+  font-size: 22px;
+}
+
+.hp-kpi-period {
+  color: $gray;
+  font-size: 16px;
+}
+
+.hp-kpi-number {
+  padding-top: 10px;
+  font-size: 48px;
+}
+
+.hp-graph-area-chart {
+  padding-top: 20px;
+}
+
+// testimony block
+
+.hp-testimony {
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 100%;
+}
+
+.hp-testimony-picture {
+  background-color: $yellow;
+  padding: 50px 10px;
+  border-radius: 85% 0% 150% 31%;
+  display: flex;
+}
+
+#hp-testimony-picture-image {
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+#hp-testimony-name {
+  font-size: 28px;
+  font-weight: bolder;
+  color: white;
+  margin-bottom: 0px;
+}
+
+#hp-testimony-title {
+  font-size: 20px;
+  color: white;
+}
+
+.hp-testimoty-text {
+  padding-left: 50px;
+  padding-top: 10px;
+}
+
+.hp-testimony-left-quote {
+  margin-bottom: 10px;
+}
+
+// bottom CTA block
+
+.hp-bottom-cta {
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 100%;
+}
+
+.hp-bottom-cta-content {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#hp-bottom-cta-btn {
+  font-size: 32px;
+}
+
