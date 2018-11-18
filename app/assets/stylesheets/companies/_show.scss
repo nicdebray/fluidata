@@ -44,3 +44,18 @@
 .sticky-offset {
   top: 85px;
 }
+
+#left-sidebar-toggle {
+  position: absolute;
+  top: 0px;
+  left: -1px;
+}
+
+#left-sidebar-toggle-left-arrow {
+  height: 20px;
+  width: 20px;
+}
+
+.hide {
+  display: none !important;
+}
