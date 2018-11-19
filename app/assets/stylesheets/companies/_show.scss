@@ -29,7 +29,7 @@
 
 .left-top-navbar-title {
   margin-left: 20px;
-  color: $blue;
+  color: $dark-gray;
 }
 
 .right-top-navbar {
@@ -41,6 +41,10 @@
 
 #right-top-navbar-edit-btn {
   margin-right: 10px;
+}
+
+.right-top-navbar-btn {
+  font-size: 14px;
 }
 
 // main content
@@ -72,6 +76,7 @@
   display: flex;
   justify-content: flex-start;
   margin-bottom: 15px;
+  color: $dark-gray;
 }
 
 .left-sidebar-menu-icon {
@@ -80,6 +85,25 @@
   margin-right: 10px;
 }
 
+.left-sidebar-submenu {
+  margin: -10px 0px 15px 25px;
+  font-size: 16px;
+}
 
+.left-sidebar-submenu-item {
+  padding: 2px 0px;
+  color: $dark-gray;
+}
 
+.left-sidebar-submenu-item a {
+  text-decoration: none;
+  color: $dark-gray;
+}
 
+.left-sidebar-submenu-item:hover {
+  color: $blue;
+}
+
+.left-sidebar-submenu-item:hover a {
+  color: $blue;
+}

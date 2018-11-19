@@ -15,11 +15,11 @@
         <div class="col-xs-12 col-sm-4">
           <div class="right-top-navbar">
             <div id="right-top-navbar-edit-btn">
-              <%= link_to "Edit", edit_company_path(current_user), class: "button-blue button" %>
+              <%= link_to "Edit", edit_company_path(current_user), class: "button-blue button right-top-navbar-btn" %>
             </div>
             <div id="right-top-navbar-delete-btn">
               <%= link_to "Delete", company_path, method: :delete,
-              data: {confirm: "Are you sure?"}, class: "button-red button" %>
+              data: {confirm: "Are you sure?"}, class: "button-red button right-top-navbar-btn" %>
             </div>
           </div>
         </div>

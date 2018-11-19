@@ -6,18 +6,18 @@
     <a href="#">
       <div class="left-sidebar-menu-item">
 
-        <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+        <div><%= image_tag("icons/files.svg", class: "left-sidebar-menu-icon") %></div>
         <div>Reports</div>
 
       </div>
     </a>
   </div>
-  <div id='submenu1' class="collapse">
+  <div id='submenu1' class="collapse left-sidebar-submenu">
     <a href="#">
-      <div class="menu-collapsed"><%= link_to "All Reports", user_reports_path(current_user) %></div>
+      <div class="menu-collapsed left-sidebar-submenu-item"><%= link_to "All Reports", user_reports_path(current_user) %></div>
     </a>
     <a href="#" class="">
-      <div class="menu-collapsed">Settings</div>
+      <div class="menu-collapsed left-sidebar-submenu-item">Settings</div>
     </a>
   </div>
   <!-- end first link -->
@@ -26,17 +26,17 @@
   <div data-target="#submenu2"  class="btn-collapse" data-id="2">
     <a href="#">
       <div class="left-sidebar-menu-item">
-        <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+        <div><%= image_tag("icons/tie.svg", class: "left-sidebar-menu-icon") %></div>
         <div>Profile</div>
       </div>
     </a>
   </div>
-  <div id='submenu2' class="collapse">
+  <div id='submenu2' class="collapse left-sidebar-submenu">
     <a href="#">
-      <div class="menu-collapsed">My Profile</div>
+      <div class="menu-collapsed left-sidebar-submenu-item">My Profile</div>
     </a>
     <a href="#" class="">
-      <div class="menu-collapsed">Company</div>
+      <div class="menu-collapsed left-sidebar-submenu-item">Company</div>
     </a>
   </div>
   <!-- end second link -->
@@ -44,17 +44,17 @@
   <div data-target="#submenu3"  class="btn-collapse" data-id="3">
     <a href="#">
       <div class="left-sidebar-menu-item">
-        <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
-        <div>Help Center</div>
+        <div><%= image_tag("icons/speech-bubble.svg", class: "left-sidebar-menu-icon") %></div>
+        <div>Support</div>
       </div>
     </a>
   </div>
-  <div id='submenu3' class="collapse">
+  <div id='submenu3' class="collapse left-sidebar-submenu">
     <a href="#">
-      <div class="menu-collapsed">Charts</div>
+      <div class="menu-collapsed left-sidebar-submenu-item">Charts</div>
     </a>
     <a href="#" class="">
-      <div class="menu-collapsed">Reports</div>
+      <div class="menu-collapsed left-sidebar-submenu-item">Reports</div>
     </a>
   </div>
   <!-- end third link -->

@@ -5,7 +5,7 @@
         <div class="col-xs-12 col-sm-8">
           <div class="left-top-navbar">
             <div class="">
-              <div id="icon-company-profile"><%= image_tag ("icons/group.svg") %></div>
+              <div id="icon-company-profile"><%= image_tag ("icons/stats.svg") %></div>
             </div>
             <div class="left-top-navbar-title">
               <h1><%= @report.name %></h1>
@@ -15,11 +15,11 @@
         <div class="col-xs-12 col-sm-4">
           <div class="right-top-navbar">
             <div id="right-top-navbar-edit-btn">
-              <%= link_to "Edit", edit_user_report_path(current_user), class: "button-blue button" %>
+              <%= link_to "Edit", edit_user_report_path(current_user), class: "button-blue button right-top-navbar-btn" %>
             </div>
             <div id="right-top-navbar-delete-btn">
               <%= link_to "Delete", user_report_path(current_user, @report), method: :delete,
-              data: {confirm: "Are you sure?"}, class: "button-red button" %>
+              data: {confirm: "Are you sure?"}, class: "button-red button right-top-navbar-btn" %>
             </div>
           </div>
         </div>
