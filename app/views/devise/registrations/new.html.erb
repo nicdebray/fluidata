@@ -22,6 +22,9 @@
         %>
         <%= f.input :department, collection: ["Management", "Finance", "IT", "Human Resources", "Production", "Marketing", "R&D", "Sales", "Purchase"]
         %>
+        <%= f.label :avatar do %> <%= f.file_field :avatar %> <%= f.hidden_field :avatar_cache %> <% end %>
+
+
         <%= f.input :admin,
         required: true,
         autofocus: true

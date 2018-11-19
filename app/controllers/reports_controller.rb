@@ -18,7 +18,6 @@ class ReportsController < ApplicationController
   def index
     @reports1 = Report.where(starred: true).order(:updated_at)
     @reports2 = Report.where(starred: false).order(:updated_at)
-
   end
 
   def toggle_starred
@@ -29,8 +28,6 @@ class ReportsController < ApplicationController
       format.js
     end
   end
-
-
 
   def create
     @report = Report.new(report_params)
@@ -67,7 +64,6 @@ class ReportsController < ApplicationController
 
   def set_report
     @report = Report.find(params[:id])
-
   end
 
   def report_params

@@ -1,0 +1,10 @@
+<div class="row">
+  <%= form_for :user, url: add_photo_path do |f| %>
+         <%= f.file_field :avatar, required: false, autofocus: true %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+  <div class ="index_picture"><%= cl_image_tag current_user.avatar %>
+  </div>
+</div>
