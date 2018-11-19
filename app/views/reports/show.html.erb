@@ -73,8 +73,13 @@
           <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
         </div>
         <%= report.order %>
-        <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
-        <%= link_to "Delete ||", user_report_kpi_block_path(current_user, @report, report), method: :delete %>
+        <div class="more-options">
+          <%= image_tag ("icons/more-options.svg"), class: "more-options-image", id: "card-kpi-option", data: {toggle: "dropdown"} %>
+          <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options">
+            <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
+            <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
+          </ul>
+        </div>
       </div>
       <% end %>
     </div>

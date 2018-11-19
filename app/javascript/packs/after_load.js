@@ -2,7 +2,6 @@ setDropDownSide();
 
 function setDropDownSide() { 
 
-
   let button  = document.querySelectorAll(".btn-collapse")
 
   button.forEach(function(item) { item.addEventListener( "click", function(event) {
@@ -17,9 +16,7 @@ function setDropDownSide() { 
   });
 });
 
-
 }
-
 
 hideSidebarMenu();
 
@@ -41,3 +38,24 @@ function hideSidebarMenu() {
     }
   })
 }
+
+setDropDownOptions();
+
+function setDropDownOptions() {
+
+  let dot  = document.querySelectorAll("#card-kpi-option")
+
+  dot.forEach(function(item) { item.addEventListener( "click", function(event) {
+    let modal = document.querySelector(".dropdown-more-options")
+    console.log(modal.style.display)
+    if( modal.style.display == "block" ) {
+      modal.style.display  = "none"
+    } else {
+      modal.style.display  = "block"
+    }
+  });
+});
+
+}
+
+
