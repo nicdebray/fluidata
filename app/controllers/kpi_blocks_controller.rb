@@ -60,4 +60,5 @@ class KpiBlocksController < ApplicationController
 
   def choice_kpi
     @items = KpiBlock.items_hash
+  end
 end
