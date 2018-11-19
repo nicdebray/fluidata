@@ -27,7 +27,8 @@
 }
 
 .left-top-navbar-title {
-  margin-left: 15px;
+  margin-left: 20px;
+  color: $blue;
 }
 
 .right-top-navbar {
@@ -37,10 +38,20 @@
   padding-top: 15px;
 }
 
+#right-top-navbar-edit-btn {
+  margin-right: 10px;
+}
+
 // main content
 
 .maincontentandnav {
   margin-top: 20px;
+}
+
+// left sidebar
+
+.left-sidebar {
+  min-height: 100vh;
 }
 
 .sticky-offset {
@@ -69,3 +80,7 @@
   width: 15px;
   margin-right: 10px;
 }
+
+
+
+

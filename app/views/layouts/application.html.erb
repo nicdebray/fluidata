@@ -13,9 +13,11 @@
 </head>
 <body>
   <div> <%= render 'shared/navbar' %> </div>
-  <%= javascript_pack_tag 'application' %>
+
   <%= render 'shared/flashes' %>
+  <%= javascript_pack_tag 'application' %>
   <%= yield %>
+  <%= javascript_pack_tag 'after_load' %>
   <div> <%= render 'shared/footer' %> </div>
 </body>
 </html>
