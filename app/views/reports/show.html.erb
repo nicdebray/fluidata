@@ -96,70 +96,63 @@
       <div class = "" id="left-sidebar-toggle">
         <%= image_tag("icons/sidebar-left-arrow.svg", class: "sticky-top sticky-offset", id: "left-sidebar-toggle-left-arrow") %>
       </div>
-      <div class="sticky-top sticky-offset">
-        <div class="report-actions">
-          <%= link_to "Add a text block |", new_user_report_text_block_path(current_user, @report) %>
-          <%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, @report) %>
-          <%= link_to "Add a graph block", new_user_report_graph_block_path(current_user, @report) %>
-        </div>
+      <div class="report-actions sticky-top sticky-offset">
+        <%= link_to "+ Text", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
+        <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
+        <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
       </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="list-group padding-top-show">
-              <% @report.text_blocks.each do |report| %>
-              <li class="list-group-item d-flex card-block-design">
-                <div class="message">
-                  <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
-                  <div class="badge_">
-                    <div class="message-status">
-                      <div class="card-trash">
-                        <i><%= link_to "",user_report_text_block_path(current_user, @report, report), method: :delete,
-                        data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
-                      </i>
-                    </div>
-                    <p class="price"><%= link_to "Edit", edit_user_report_text_block_path(current_user, @report, report), class: "edit-index" %>
-                    </p>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-group padding-top-show">
+            <% @report.text_blocks.each do |report| %>
+            <li class="list-group-item d-flex card-block-design">
+              <div class="message">
+                <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
+                <div class="badge_">
+                  <div class="message-status">
+                    <div class="card-trash">
+                      <i><%= link_to "",user_report_text_block_path(current_user, @report, report), method: :delete,
+                      data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
+                    </i>
                   </div>
+                  <p class="price"><%= link_to "Edit", edit_user_report_text_block_path(current_user, @report, report), class: "edit-index" %>
+                  </p>
                 </div>
               </div>
-            </li>
-            <% end %>
-          </ul>
-        </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <% @report.kpi_blocks.each do |report| %>
-        <div class="card col-xs-12 col-sm-6 col-md-4">
-          <%= link_to report.kpi_type, user_report_kpi_block_path(current_user, @report, report) %>
-          <%= report.start_date %>
-          <%= report.end_date %>
-          <div style="font-size: 32px;">
-            <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
-          </div>
-          <%= report.order %>
-          <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
-          <%= link_to "Delete ||", user_report_kpi_block_path(current_user, @report, report), method: :delete %>
+    <div class="row">
+      <% @report.kpi_blocks.each do |report| %>
+      <div class="card col-xs-12 col-sm-6 col-md-4">
+        <%= link_to report.kpi_type, user_report_kpi_block_path(current_user, @report, report) %>
+        <%= report.start_date %>
+        <%= report.end_date %>
+        <div style="font-size: 32px;">
+          <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
         </div>
-        <% end %>
+        <%= report.order %>
+        <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
+        <%= link_to "Delete ||", user_report_kpi_block_path(current_user, @report, report), method: :delete %>
       </div>
-
-      <div class="row">
-        <% @report.graph_blocks.each do |report| %>
-        <div class="card col-xs-12 col-sm-6 col-md-4">
-          <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
-          <%= report.start_date %>
-          <%= report.end_date %>
-          <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
-          <%= column_chart values %>
-          <%= report.order %>
-          <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
-          <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
-        </div>
-        <% end %>
+      <% end %>
+    </div>
+    <div class="row">
+      <% @report.graph_blocks.each do |report| %>
+      <div class="card col-xs-12 col-sm-6 col-md-4">
+        <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
+        <%= report.start_date %>
+        <%= report.end_date %>
+        <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
+        <%= column_chart values %>
+        <%= report.order %>
+        <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
+        <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
