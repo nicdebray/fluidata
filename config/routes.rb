@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#home"
-
+  post "add_photo", to: "pages#add_photo"
   resources :companies
 
   devise_for :users

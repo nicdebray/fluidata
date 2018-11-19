@@ -1,0 +1,5 @@
+<% if not user_signed_in? %>
+  <%= image_tag("avatar_placeholder.png", :class => "avatar dropdown-toggle", :id => "navbar-wagon-menu", :'data-toggle' => "dropdown") %>
+<% else %>
+  <%= cl_image_tag current_user.avatar, :class => "avatar dropdown-toggle", :id => "navbar-wagon-menu", :'data-toggle' => "dropdown" %>
+<% end %>
