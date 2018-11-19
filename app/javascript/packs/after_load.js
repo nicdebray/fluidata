@@ -1,5 +1,5 @@
 setDropDownSide()
-hideSidebarMenu()
+
 
 function setDropDownSide(){ 
 
@@ -20,6 +20,8 @@ function setDropDownSide(){ 
 
 }
 
+
+hideSidebarMenu()
 
 function hideSidebarMenu() {
 
