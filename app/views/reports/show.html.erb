@@ -69,3 +69,7 @@
   <%= link_to "Edit the report", edit_user_report_path(current_user) %>
   <%= link_to "Delete", user_report_path(current_user, @report), method: :delete %>
 </div>
+
+<div>
+  <%= link_to "Click to export as pdf", user_report_path(current_user, @report, format: :pdf), target: '_blank', class: 'btn btn-default' %>
+</div>
