@@ -32,12 +32,14 @@
 
         <!-- first link -->
         <div data-target="#submenu1"  class="btn-collapse" data-id="1">
-          <div class="left-sidebar-menu-item">
+          <a href="#">
+            <div class="left-sidebar-menu-item">
 
-            <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
-            <div>texte 1</div>
+              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+              <div>texte 1</div>
 
-          </div>
+            </div>
+          </a>
         </div>
         <div id='submenu1' class="collapse">
           <a href="#">
@@ -50,34 +52,48 @@
             <div class="menu-collapsed">Tables</div>
           </a>
         </div>
-
+        <!-- end first link -->
         <!-- second link -->
-        <div class="left-sidebar-menu-item">
-          <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
-          <div>texte 2</div>
-        </div>
 
-        <!-- third link -->
-        <div class="left-sidebar-menu-item">
-          <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
-          <div>texte 3</div>
-        </div>
-
-        <!-- collapse button -->
-        <!-- <div class="left-sidebar-menu-item">
-          <a href="#" data-toggle="sidebar-colapse" class="">
-            <div class="">
-              <div id="collapse-icon" class="fa fa-2x mr-3"></div>
-              <div id="collapse-text" class="menu-collapsed">Collapse</div>
+        <div data-target="#submenu2"  class="btn-collapse" data-id="2">
+          <a href="#">
+            <div class="left-sidebar-menu-item">
+              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+              <div>texte 2</div>
             </div>
           </a>
-        </div> -->
-
-
+        </div>
+        <div id='submenu2' class="collapse">
+          <a href="#">
+            <div class="menu-collapsed">Charts</div>
+          </a>
+          <a href="#" class="">
+            <div class="menu-collapsed">Reports</div>
+          </a>
+        </div>
+        <!-- end second link -->
+        <!-- third link -->
+        <div data-target="#submenu3"  class="btn-collapse" data-id="3">
+          <a href="#">
+            <div class="left-sidebar-menu-item">
+              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+              <div>texte 3</div>
+            </div>
+          </a>
+        </div>
+        <div id='submenu3' class="collapse">
+          <a href="#">
+            <div class="menu-collapsed">Charts</div>
+          </a>
+          <a href="#" class="">
+            <div class="menu-collapsed">Reports</div>
+          </a>
+        </div>
+        <!-- end third link -->
       </div>
     </div>
     <div class="right-maincontent col-xs-12 col-md-10">
-      <div id="left-sidebar-toggle">
+      <div class = "sticky-offset" id="left-sidebar-toggle">
         <%= image_tag("icons/sidebar-left-arrow.svg", id: "left-sidebar-toggle-left-arrow") %>
       </div>
 

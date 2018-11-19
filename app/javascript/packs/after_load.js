@@ -1,12 +1,12 @@
-setDropDownSide()
+setDropDownSide();
+console.log('please help');
+
+function setDropDownSide() { 
 
 
-function setDropDownSide(){ 
+  let button  = document.querySelectorAll(".btn-collapse")
 
-
-  let button  = document.querySelector(".btn-collapse")
-
-  button.addEventListener( "click", function(event) {
+  button.forEach(function(item) { item.addEventListener( "click", function(event) {
     let id = event.currentTarget.dataset.id
     let modal = document.querySelector(`#submenu${id}`)
     console.log(modal.style.display)
@@ -15,13 +15,14 @@ function setDropDownSide(){ 
     } else {
       modal.style.display  = "block"
     }
-  })
+  });
+});
 
 
 }
 
 
-hideSidebarMenu()
+hideSidebarMenu();
 
 function hideSidebarMenu() {
 

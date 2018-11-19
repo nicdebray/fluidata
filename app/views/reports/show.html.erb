@@ -1,73 +1,165 @@
-<h1><%= @report.name %></h1>
-
-<%= link_to "Add a text block |", new_user_report_text_block_path(current_user, @report) %>
-<%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, @report) %>
-<%= link_to "Add a graph block", new_user_report_graph_block_path(current_user, @report) %>
-
 <div class="container-fluid">
-  <div class="col-lg-12">
-    <ul class="list-group padding-top-show">
-      <% @report.text_blocks.each do |report| %>
-        <li class="list-group-item d-flex card-block-design">
-          <div class="message">
-            <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
-            <div class="badge_">
-              <div class="message-status">
-                <div class="card-trash">
-                  <i><%= link_to "",user_report_text_block_path(current_user, @report, report), method: :delete,
-                    data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
-                  </i>
-                </div>
-                <p class="price"><%= link_to "Edit", edit_user_report_text_block_path(current_user, @report, report), class: "edit-index" %>
-                </p>
-              </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="top-navbar">
+        <div class="col-xs-12 col-sm-8">
+          <div class="left-top-navbar">
+            <div class="">
+              <div id="icon-company-profile"><%= image_tag ("icons/group.svg") %></div>
+            </div>
+            <div class="left-top-navbar-title">
+              <h1><%= @report.name %></h1>
             </div>
           </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <% @report.kpi_blocks.each do |report| %>
-    <div class="card col-xs-12 col-sm-6 col-md-4">
-      <%= KpiBlock.items_hash.key(report.kpi_type)  %>
-      <br> <%= report.start_date %> </br>
-      <%= report.end_date %>
-      <div style="font-size: 32px;">
-        <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="right-top-navbar">
+            <div id="right-top-navbar-edit-btn">
+              <%= link_to "Edit", edit_user_report_path(current_user), class: "button-blue button" %>
+            </div>
+            <div id="right-top-navbar-delete-btn">
+              <%= link_to "Delete", user_report_path(current_user, @report), method: :delete,
+              data: {confirm: "Are you sure?"}, class: "button-red button" %>
+            </div>
+          </div>
+        </div>
       </div>
-      <%= report.order %>
-      <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
-      <%= link_to "Delete ||", user_report_kpi_block_path(current_user, @report, report), method: :delete %>
     </div>
-    <% end %>
   </div>
-</div>
+  <div class="row maincontentandnav">
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container">
+      <div class="left-sidebar-menu sticky-top sticky-offset">
 
-<div class="container-fluid">
-  <div class="row">
-    <% @report.graph_blocks.each do |report| %>
-    <div class="card col-xs-12 col-sm-6 col-md-4">
-      <%= GraphBlock.items_hash.key(report.graph_type)  %>
-      <br> <%= report.start_date %> </br>
-      <%= report.end_date %>
-      <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
-      <%= column_chart values %>
-      <%= report.order %>
-      <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
-      <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
+        <!-- first link -->
+        <div data-target="#submenu1"  class="btn-collapse" data-id="1">
+          <a href="#">
+            <div class="left-sidebar-menu-item">
+
+              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+              <div>texte 1</div>
+
+            </div>
+          </a>
+        </div>
+        <div id='submenu1' class="collapse">
+          <a href="#">
+            <div class="menu-collapsed">Charts</div>
+          </a>
+          <a href="#" class="">
+            <div class="menu-collapsed">Reports</div>
+          </a>
+          <a href="#" class="">
+            <div class="menu-collapsed">Tables</div>
+          </a>
+        </div>
+        <!-- end first link -->
+        <!-- second link -->
+
+        <div data-target="#submenu2"  class="btn-collapse" data-id="2">
+          <a href="#">
+            <div class="left-sidebar-menu-item">
+              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+              <div>texte 2</div>
+            </div>
+          </a>
+        </div>
+        <div id='submenu2' class="collapse">
+          <a href="#">
+            <div class="menu-collapsed">Charts</div>
+          </a>
+          <a href="#" class="">
+            <div class="menu-collapsed">Reports</div>
+          </a>
+        </div>
+        <!-- end second link -->
+        <!-- third link -->
+        <div data-target="#submenu3"  class="btn-collapse" data-id="3">
+          <a href="#">
+            <div class="left-sidebar-menu-item">
+              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
+              <div>texte 3</div>
+            </div>
+          </a>
+        </div>
+        <div id='submenu3' class="collapse">
+          <a href="#">
+            <div class="menu-collapsed">Charts</div>
+          </a>
+          <a href="#" class="">
+            <div class="menu-collapsed">Reports</div>
+          </a>
+        </div>
+        <!-- end third link -->
+      </div>
     </div>
-    <% end %>
+    <div class="right-maincontent col-xs-12 col-md-10">
+      <div class = "" id="left-sidebar-toggle">
+        <%= image_tag("icons/sidebar-left-arrow.svg", class: "sticky-top sticky-offset", id: "left-sidebar-toggle-left-arrow") %>
+      </div>
+      <div class="report-actions sticky-top sticky-offset">
+        <%= link_to "+ Text", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
+        <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
+        <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-group padding-top-show">
+            <% @report.text_blocks.each do |report| %>
+            <li class="list-group-item d-flex card-block-design">
+              <div class="message">
+                <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
+                <div class="badge_">
+                  <div class="message-status">
+                    <div class="card-trash">
+                      <i><%= link_to "",user_report_text_block_path(current_user, @report, report), method: :delete,
+                      data: { confirm: "Are you sure?"}, class: "fas fa-trash" %>
+                    </i>
+                  </div>
+                  <p class="price"><%= link_to "Edit", edit_user_report_text_block_path(current_user, @report, report), class: "edit-index" %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <% @report.kpi_blocks.each do |report| %>
+      <div class="card col-xs-12 col-sm-6 col-md-4">
+        <%= KpiBlock.items_hash.key(report.kpi_type)  %>
+        <br> <%= report.start_date %> </br>
+        <%= report.end_date %>
+        <div style="font-size: 32px;">
+          <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
+        </div>
+        <%= report.order %>
+        <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
+        <%= link_to "Delete ||", user_report_kpi_block_path(current_user, @report, report), method: :delete %>
+      </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <% @report.graph_blocks.each do |report| %>
+      <div class="card col-xs-12 col-sm-6 col-md-4">
+        <%= GraphBlock.items_hash.key(report.graph_type)  %>
+        <br> <%= report.start_date %> </br>
+        <%= report.end_date %>
+        <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
+        <%= column_chart values %>
+        <%= report.order %>
+        <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
+        <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
+
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div>
   <%= link_to "Back to overview |", user_reports_path(current_user) %>
-  <%= link_to "Edit the report", edit_user_report_path(current_user) %>
-  <%= link_to "Delete", user_report_path(current_user, @report), method: :delete %>
 </div>
 
 <div>
