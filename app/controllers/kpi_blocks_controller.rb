@@ -5,6 +5,7 @@ class KpiBlocksController < ApplicationController
   def new
     @report = Report.find(params[:report_id])
     @kpi_block = KpiBlock.new
+    choice_kpi
   end
 
   def show
@@ -17,7 +18,6 @@ class KpiBlocksController < ApplicationController
     @report = Report.find(params[:report_id])
     @kpi_block = KpiBlock.new(kpi_block_params)
     @kpi_block.report = Report.find(params[:report_id])
-    # @kpi = KpiBlock.new.call_ga_v4(kpi_block_params)
     if @kpi_block.save
       redirect_to user_report_path(current_user, @report)
     else
@@ -34,6 +34,7 @@ class KpiBlocksController < ApplicationController
   end
 
   def edit
+    choice_kpi
   end
 
   def destroy
@@ -56,4 +57,7 @@ class KpiBlocksController < ApplicationController
     params.require(:kpi_block).permit(:kpi_type, :order, :start_date, :end_date, :report_id)
   end
 
+
+  def choice_kpi
+    @items = KpiBlock.items_hash
 end

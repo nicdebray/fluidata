@@ -3,7 +3,7 @@
 <%= simple_form_for [current_user, @report, @graph_block] do |f| %>
 <%= f.input :start_date %>
 <%= f.input :end_date %>
-]<%= f.input :graph_type %>
+<%= f.input :graph_type, as: :select, collection: @items, label_method: :first, value_method: :last %>
 <%= f.button :submit %>
 <% end %>
 
