@@ -15,11 +15,11 @@
         <div class="col-xs-12 col-sm-4">
           <div class="right-top-navbar">
             <div id="right-top-navbar-edit-btn">
-              <%= link_to "Edit", edit_company_path(current_user), class: "button-blue button" %>
+              <%= link_to "Edit", edit_company_path(current_user), class: "button-blue button right-top-navbar-btn" %>
             </div>
             <div id="right-top-navbar-delete-btn">
               <%= link_to "Delete", company_path, method: :delete,
-              data: {confirm: "Are you sure?"}, class: "button-red button" %>
+              data: {confirm: "Are you sure?"}, class: "button-red button right-top-navbar-btn" %>
             </div>
           </div>
         </div>
@@ -31,8 +31,8 @@
     </div>
 
     <div class="right-maincontent col-xs-12 col-md-10">
-      <div class = "sticky-offset" id="left-sidebar-toggle">
-        <%= image_tag("icons/sidebar-left-arrow.svg", id: "left-sidebar-toggle-left-arrow") %>
+      <div class = "" id="left-sidebar-toggle">
+        <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
       </div>
 
       <div>

@@ -1,5 +1,4 @@
 setDropDownSide();
-console.log('please help');
 
 function setDropDownSide() { 
 
@@ -32,9 +31,13 @@ function hideSidebarMenu() {
     let sbm = document.querySelector(".left-sidebar")
     if (sbm.classList.contains("d-md-block")) {
       sbm.classList.remove("d-md-block");
+      arrow.classList.add("fa-caret-right");
+      arrow.classList.remove("fa-caret-left");
     }
     else {
       sbm.classList.add("d-md-block");
+      arrow.classList.add("fa-caret-left");
+      arrow.classList.remove("fa-caret-right");
     }
   })
 }
