@@ -7,17 +7,23 @@ class ReportsController < ApplicationController
   end
 
   def show
-
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'Company Detail Report', layout: 'pdf_layout.html'
+      end
+    end
   end
 
   def index
     @reports1 = Report.where(starred: true).order(:updated_at)
     @reports2 = Report.where(starred: false).order(:updated_at)
+
   end
 
   def toggle_starred
     set_report
-    @report.starred =  !@report.starred
+    @report.starred = !@report.starred
     @report.save
     respond_to do |format|
       format.js
