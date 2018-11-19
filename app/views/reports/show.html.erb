@@ -33,8 +33,8 @@
   <div class="row">
     <% @report.kpi_blocks.each do |report| %>
     <div class="card col-xs-12 col-sm-6 col-md-4">
-      <%= link_to report.kpi_type, user_report_kpi_block_path(current_user, @report, report) %>
-      <%= report.start_date %>
+      <%= KpiBlock.items_hash.key(report.kpi_type)  %>
+      <br> <%= report.start_date %> </br>
       <%= report.end_date %>
       <div style="font-size: 32px;">
         <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
@@ -51,8 +51,8 @@
   <div class="row">
     <% @report.graph_blocks.each do |report| %>
     <div class="card col-xs-12 col-sm-6 col-md-4">
-      <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
-      <%= report.start_date %>
+      <%= GraphBlock.items_hash.key(report.graph_type)  %>
+      <br> <%= report.start_date %> </br>
       <%= report.end_date %>
       <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
       <%= column_chart values %>

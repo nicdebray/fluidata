@@ -5,6 +5,7 @@ class GraphBlocksController < ApplicationController
   def new
     @report = Report.find(params[:report_id])
     @graph_block = GraphBlock.new
+    choice_graph
   end
 
   def show
@@ -33,6 +34,7 @@ class GraphBlocksController < ApplicationController
   end
 
   def edit
+    choice_graph
   end
 
   def destroy
@@ -55,4 +57,7 @@ class GraphBlocksController < ApplicationController
     params.require(:graph_block).permit(:graph_type, :start_date, :end_date, :order, :report_id)
   end
 
+  def choice_graph
+    @items = GraphBlock.items_hash
+  end
 end
