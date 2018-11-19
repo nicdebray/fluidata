@@ -7,7 +7,6 @@ Chartkick.addAdapter(Chart);
 
 
 setDropDown()
-
 function setDropDown() {
 
 
@@ -26,17 +25,17 @@ function setDropDown() {
 }
 
 
-hideSidebarMenu()
+// hideSidebarMenu()
 
-function hideSidebarMenu() {
+// function hideSidebarMenu() {
 
-  let arrow = document.querySelector("#left-sidebar-toggle-left-arrow")
+//   let arrow = document.querySelector("#left-sidebar-toggle-left-arrow")
 
-  arrow.addEventListener( "click", function() {
-    let sbm = document.querySelector(".left-sidebar")
-    // sbm.classList.toogle("hide");
-    sbm.classList.remove("d-md-block");
+//   arrow.addEventListener( "click", function() {
+//     let sbm = document.querySelector(".left-sidebar")
+//     // sbm.classList.toogle("hide");
+//     sbm.classList.remove("d-md-block");
 
-  })
+//   })
 
-}
+// }
