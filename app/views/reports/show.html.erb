@@ -27,79 +27,17 @@
     </div>
   </div>
   <div class="row maincontentandnav">
-    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container">
-      <div class="left-sidebar-menu sticky-top sticky-offset">
-
-        <!-- first link -->
-        <div data-target="#submenu1"  class="btn-collapse" data-id="1">
-          <a href="#">
-            <div class="left-sidebar-menu-item">
-
-              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
-              <div>texte 1</div>
-
-            </div>
-          </a>
-        </div>
-        <div id='submenu1' class="collapse">
-          <a href="#">
-            <div class="menu-collapsed">Charts</div>
-          </a>
-          <a href="#" class="">
-            <div class="menu-collapsed">Reports</div>
-          </a>
-          <a href="#" class="">
-            <div class="menu-collapsed">Tables</div>
-          </a>
-        </div>
-        <!-- end first link -->
-        <!-- second link -->
-
-        <div data-target="#submenu2"  class="btn-collapse" data-id="2">
-          <a href="#">
-            <div class="left-sidebar-menu-item">
-              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
-              <div>texte 2</div>
-            </div>
-          </a>
-        </div>
-        <div id='submenu2' class="collapse">
-          <a href="#">
-            <div class="menu-collapsed">Charts</div>
-          </a>
-          <a href="#" class="">
-            <div class="menu-collapsed">Reports</div>
-          </a>
-        </div>
-        <!-- end second link -->
-        <!-- third link -->
-        <div data-target="#submenu3"  class="btn-collapse" data-id="3">
-          <a href="#">
-            <div class="left-sidebar-menu-item">
-              <div><%= image_tag("icons/paper-plane.svg", class: "left-sidebar-menu-icon") %></div>
-              <div>texte 3</div>
-            </div>
-          </a>
-        </div>
-        <div id='submenu3' class="collapse">
-          <a href="#">
-            <div class="menu-collapsed">Charts</div>
-          </a>
-          <a href="#" class="">
-            <div class="menu-collapsed">Reports</div>
-          </a>
-        </div>
-        <!-- end third link -->
-      </div>
-    </div>
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %> </div>
     <div class="right-maincontent col-xs-12 col-md-10">
-      <div class = "" id="left-sidebar-toggle">
-        <%= image_tag("icons/sidebar-left-arrow.svg", class: "sticky-top sticky-offset", id: "left-sidebar-toggle-left-arrow") %>
-      </div>
-      <div class="report-actions sticky-top sticky-offset">
-        <%= link_to "+ Text", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
-        <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
-        <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
+      <div class="row maincontentandnav-top sticky-top sticky-offset">
+        <div class = "" id="left-sidebar-toggle">
+          <%= image_tag("icons/sidebar-left-arrow.svg", class: "", id: "left-sidebar-toggle-left-arrow") %>
+        </div>
+        <div class="report-actions">
+          <%= link_to "+ Text", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
+          <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
+          <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
+        </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
@@ -156,10 +94,6 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<div>
-  <%= link_to "Back to overview |", user_reports_path(current_user) %>
 </div>
 
 <div>
