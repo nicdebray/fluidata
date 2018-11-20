@@ -15,11 +15,17 @@
   padding-right: 30px;
 }
 
-
 .card-kpi-metric-title {
   color: $orange;
 }
 
+.card-wrapper {
+  padding: 15px;
+}
+
+.report-blocks-row {
+  margin-top: 20px;
+}
 
 .card-kpi-more-options {
   position: absolute;
@@ -43,5 +49,4 @@
 
 .fa-ellipsis-v {
   color: $gray;
-  font-weight: light;
 }
