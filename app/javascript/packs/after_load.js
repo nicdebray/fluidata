@@ -43,10 +43,11 @@ setDropDownOptions();
 
 function setDropDownOptions() {
 
-  let dot  = document.querySelectorAll("#card-kpi-option")
+  let dot  = document.querySelectorAll(".card-kpi-option")
 
   dot.forEach(function(item) { item.addEventListener( "click", function(event) {
-    let modal = document.querySelector(".dropdown-more-options")
+    let id = event.currentTarget.dataset.toggle
+    let modal = document.querySelector(`#${id}`)
     console.log(modal.style.display)
     if( modal.style.display == "block" ) {
       modal.style.display  = "none"

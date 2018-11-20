@@ -65,17 +65,17 @@
     </div>
     <div class="row">
       <% @report.kpi_blocks.each do |report| %>
-      <div class="card col-xs-12 col-sm-6 col-md-4">
-        <%= KpiBlock.items_hash.key(report.kpi_type)  %>
-        <br> <%= report.start_date %> </br>
-        <%= report.end_date %>
-        <div style="font-size: 32px;">
+      <div class="card card-kpi col-xs-12 col-sm-6 col-md-4">
+        <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
+        <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
+        <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+        <div class="card-kpi-metric-value">
           <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
         </div>
         <%= report.order %>
-        <div class="more-options">
-          <%= image_tag ("icons/more-options.svg"), class: "more-options-image", id: "card-kpi-option", data: {toggle: "dropdown"} %>
-          <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options">
+        <div class="card-kpi-more-options" >
+          <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-#{report.id}"} %>
+          <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-<%= "#{report.id}"%>">
             <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
             <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
           </ul>

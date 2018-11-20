@@ -1,5 +1,5 @@
 <% if  !user_signed_in? || current_user.try(:avatar).try(:url).nil?  %>
-  <%= image_tag("avatar_placeholder.png", :class => "avatar dropdown-toggle", :id => "navbar-wagon-menu", :'data-toggle' => "dropdown") %>
+  <%= image_tag("avatar_placeholder.png", :class => "avatar", :id => "navbar-wagon-menu", :'data-toggle' => "dropdown") %>
   <% else %>
-  <%= cl_image_tag current_user.avatar, :class => "avatar dropdown-toggle", :id => "navbar-wagon-menu", :'data-toggle' => "dropdown" %>
+  <%= cl_image_tag current_user.avatar, :class => "avatar", :id => "navbar-wagon-menu", :'data-toggle' => "dropdown" %>
 <% end %>
