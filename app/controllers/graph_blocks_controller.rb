@@ -58,6 +58,6 @@ class GraphBlocksController < ApplicationController
   end
 
   def choice_graph
-    @items = GraphBlock.items_hash
+    @items = GraphBlock.items_hash.sort_by { |k, v| k }
   end
 end

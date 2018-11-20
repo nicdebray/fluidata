@@ -10,6 +10,7 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'carrierwave', '~> 1.2'
 gem 'chartkick'
 gem 'cloudinary'
@@ -21,6 +22,7 @@ gem 'groupdate'
 gem 'highcharts-rails'
 gem 'jquery'
 gem 'jquery-rails'
+gem 'momentjs-rails', '>= 2.9.0'
 gem 'omniauth-google-oauth2'
 
 gem "pundit"
