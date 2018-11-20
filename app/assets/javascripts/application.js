@@ -6,8 +6,9 @@
 //= require moment
 //= require bootstrap-datetimepicker
 
-
-
 //= require_tree .
 
-import {} from 'jquery-ujs'
+$('#sandbox-container input').datepicker({
+  maxViewMode: 2
+});
+

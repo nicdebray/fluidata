@@ -25,9 +25,6 @@ class ReportsController < ApplicationController
     set_report
     @report.starred = !@report.starred
     @report.save
-    respond_to do |format|
-      format.js
-    end
   end
 
   def create
