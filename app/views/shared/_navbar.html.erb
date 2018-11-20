@@ -8,6 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in?  %>
       <%= link_to "Reports", user_reports_path(:user_id), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= render 'shared/search' %>
     <% end %>
 
     <!-- Profile picture with dropdown list -->
