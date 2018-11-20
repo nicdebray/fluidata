@@ -1,45 +1,43 @@
-<h1>Edit your report</h1>
-
-
-<%= simple_form_for [current_user, @report] do |f| %>
-<%= f.input :name, label: "Name of the new report", error: 'Project name is mandatory, please specify one' %>
-<%= link_to "Add a text block |", new_user_report_text_block_path(current_user, @report) %>
-<%= link_to "Add a kpi block |", new_user_report_kpi_block_path(current_user, @report) %>
-<%= link_to "Add a graph block", new_user_report_graph_block_path(current_user, @report) %>
-<%= f.button :submit %>
-<% end %>
-
-<div>
-  <% @report.text_blocks.each do |report| %>
-  <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
-  <%= link_to "| Edit | ", edit_user_report_text_block_path(current_user, @report, report) %>
-  <%= link_to "Delete ||", user_report_text_block_path(current_user, @report, report), method: :delete %>
-  <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="top-navbar">
+        <div class="col-xs-12 col-sm-8">
+          <div class="left-top-navbar">
+            <div class="">
+              <div id="icon-company-profile"><%= image_tag ("icons/stats.svg") %></div>
+            </div>
+            <div class="left-top-navbar-title">
+              <h1>Edit your report</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="right-top-navbar">
+            <div id="right-top-navbar-edit-btn">
+              <%= link_to "Back to the report", user_report_path(current_user, @report), class: "button-blue button right-top-navbar-btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row maincontentandnav">
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %> </div>
+    <div class="right-maincontent col-xs-12 col-md-10">
+      <div class="row maincontentandnav-top sticky-top sticky-offset">
+        <div class = "" id="left-sidebar-toggle">
+          <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <%= simple_form_for [current_user, @report] do |f| %>
+          <%= f.input :name, label: "Report name", error: 'Project name is mandatory, please specify one' %>
+          <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div>
-  <% @report.kpi_blocks.each do |report| %>
-  <%= link_to report.kpi_type, user_report_kpi_block_path(current_user, @report, report) %>
-  <%= report.end_date %>
-  <%= report.start_date %>
-  <%= report.order %>
-  <%= link_to "| Edit | ", edit_user_report_kpi_block_path(current_user, @report, report) %>
-  <%= link_to "Delete ||", user_report_kpi_block_path(current_user, @report, report), method: :delete %>
-  <% end %>
-</div>
-
-<div>
-  <% @report.graph_blocks.each do |report| %>
-  <%= link_to report.graph_type, user_report_graph_block_path(current_user, @report, report)%>
-  <%= report.end_date %>
-  <%= report.start_date %>
-  <%= report.order %>
-  <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
-  <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
-  <% end %>
-</div>
-
-<%= link_to "Delete this report |", user_report_path(current_user, @report), method: :delete %>
-
-<%= link_to "Back to overview", user_reports_path(current_user) %>
-
