@@ -1,5 +1,6 @@
 setDropDownSide();
-
+import { $, datepicker } from "jquery";
+import { datetimepicker} from "datetimepicker";
 function setDropDownSide() { 
 
   let button  = document.querySelectorAll(".btn-collapse")
@@ -63,5 +64,6 @@ function setDropDownOptions() {
 });
 
 }
+
 
 

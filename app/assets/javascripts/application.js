@@ -10,4 +10,3 @@
 
 //= require_tree .
 
-import {} from 'jquery-ujs'
