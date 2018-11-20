@@ -23,6 +23,7 @@ hideSidebarMenu();
 function hideSidebarMenu() {
 
   let arrow = document.querySelector("#left-sidebar-toggle-left-arrow")
+  let maincont = document.querySelector(".right-maincontent")
 
   arrow.addEventListener( "click", function() {
     let sbm = document.querySelector(".left-sidebar")
@@ -30,11 +31,15 @@ function hideSidebarMenu() {
       sbm.classList.remove("d-md-block");
       arrow.classList.add("fa-caret-right");
       arrow.classList.remove("fa-caret-left");
+      maincont.classList.add("col-md-12");
+      maincont.classList.remove("col-md-10");
     }
     else {
       sbm.classList.add("d-md-block");
       arrow.classList.add("fa-caret-left");
       arrow.classList.remove("fa-caret-right");
+      maincont.classList.add("col-md-10");
+      maincont.classList.remove("col-md-12");
     }
   })
 }

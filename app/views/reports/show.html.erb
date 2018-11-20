@@ -18,7 +18,7 @@
               <%= link_to "Edit", edit_user_report_path(current_user), class: "button-blue button right-top-navbar-btn" %>
             </div>
             <div id="right-top-navbar-delete-btn">
-              <%= link_to "Delete", user_report_path(current_user, @report), method: :delete,
+              <%= link_to "Delete", user_reports_path(current_user, @report), method: :delete,
               data: {confirm: "Are you sure?"}, class: "button-red button right-top-navbar-btn" %>
             </div>
           </div>
@@ -59,41 +59,45 @@
           </ul>
         </div>
       </div>
-      <div class="row">
+      <div class="row report-blocks-row">
         <% @report.kpi_blocks.each do |report| %>
-        <div class="card card-kpi col-xs-12 col-sm-6 col-md-4">
-          <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
-          <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
-          <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
-          <div class="card-kpi-metric-value">
-            <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
-          </div>
-          <%= report.order %>
-          <div class="card-kpi-more-options" >
-            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-kpi-<%=report.id%>"></i>
-            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-kpi-<%= "#{report.id}"%>">
-              <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
-              <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
-            </ul>
+        <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
+          <div class="card card-kpi card-wrapper">
+            <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
+            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
+            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+            <div class="card-kpi-metric-value">
+              <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
+            </div>
+            <%= report.order %>
+            <div class="card-kpi-more-options" >
+              <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-kpi-<%=report.id%>"></i>
+              <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-kpi-<%= "#{report.id}"%>">
+                <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
+                <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
+              </ul>
+            </div>
           </div>
         </div>
         <% end %>
       </div>
-      <div class="row">
+      <div class="row report-blocks-row">
         <% @report.graph_blocks.each do |report| %>
-        <div class="card col-xs-12 col-sm-6 col-md-4">
-          <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
-          <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
-          <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
-          <div class="card-kpi-metric-value">
-           <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %></div>
-           <div class="card-graph-chart"> <%= column_chart values %></div>
-           <div class="card-kpi-more-options" >
-            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-graph-<%=report.id%>"></i>
-            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-graph-<%= "#{report.id}"%>">
-              <li><%= link_to "Edit", edit_user_report_graph_block_path(current_user, @report, report) %></li>
-              <li><%= link_to "Delete", user_report_graph_block_path(current_user, @report, report), method: :delete %></li>
-            </ul>
+        <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
+          <div class="card card-kpi card-wrapper">
+            <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
+            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
+            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+            <div class="card-kpi-metric-value">
+             <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %></div>
+             <div class="card-graph-chart"> <%= column_chart values %></div>
+             <div class="card-kpi-more-options" >
+              <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-graph-<%=report.id%>"></i>
+              <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-graph-<%= "#{report.id}"%>">
+                <li><%= link_to "Edit", edit_user_report_graph_block_path(current_user, @report, report) %></li>
+                <li><%= link_to "Delete", user_report_graph_block_path(current_user, @report, report), method: :delete %></li>
+              </ul>
+            </div>
           </div>
         </div>
         <% end %>
