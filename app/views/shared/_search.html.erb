@@ -1,4 +1,6 @@
-<%= form_tag(user_reports_path(current_user), method: :get) do %>
-<%= text_field_tag :term, params[:term], placeholder: 'Search your report...', class: "search-box-field" %>
-<% end %>
+<div class="nav-bar-search-box">
+  <%= form_tag(user_reports_path(current_user), method: :get) do %>
+  <%= text_field_tag :term, params[:term], placeholder: 'Search your report...', class: "search-box-field" %>
+  <% end %>
+</div>
 
