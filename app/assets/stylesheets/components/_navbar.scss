@@ -82,3 +82,18 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.search-box-field {
+  font-size: 16px;
+  color: $gray;
+  padding: 5px;
+  border-radius: 47px;
+  width: 275px;
+  border: 1px solid;
+  padding-left: 5px;
+}
+
+.search-box-field::-webkit-input-placeholder {
+  color: $gray;
+  padding-left: 5px;
+}
