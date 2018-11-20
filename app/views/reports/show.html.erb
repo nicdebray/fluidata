@@ -61,7 +61,7 @@
       </div>
       <div class="row report-blocks-row">
         <% @report.kpi_blocks.each do |report| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
           <div class="card card-kpi card-wrapper">
             <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
             <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
@@ -83,7 +83,7 @@
       </div>
       <div class="row report-blocks-row">
         <% @report.graph_blocks.each do |report| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
           <div class="card card-kpi card-wrapper">
             <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
             <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
