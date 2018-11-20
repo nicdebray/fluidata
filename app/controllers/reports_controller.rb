@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
   end
 
   def index
+    @reports = Report.where('name LIKE ?', "%#{params[:term]}%")
     @reports1 = Report.where(starred: true).order(:updated_at)
     @reports2 = Report.where(starred: false).order(:updated_at)
   end
@@ -67,7 +68,7 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:name, :user_id)
+    params.require(:report).permit(:name, :user_id, :term)
   end
 
 end
