@@ -47,7 +47,7 @@
               <div class="message">
                 <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
                 <div class="card-kpi-more-options" >
-                  <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-text-#{report.id}"} %>
+                  <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-text-<%=report.id%>"></i>
                   <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-text-<%= "#{report.id}"%>">
                     <li><%= link_to "Edit", edit_user_report_text_block_path(current_user, @report, report) %></li>
                     <li><%= link_to "Delete", user_report_text_block_path(current_user, @report, report), method: :delete %></li>
@@ -70,7 +70,7 @@
           </div>
           <%= report.order %>
           <div class="card-kpi-more-options" >
-            <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-kpi-#{report.id}"} %>
+            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-kpi-<%=report.id%>"></i>
             <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-kpi-<%= "#{report.id}"%>">
               <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
               <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
@@ -89,7 +89,7 @@
            <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %></div>
            <div class="card-graph-chart"> <%= column_chart values %></div>
            <div class="card-kpi-more-options" >
-            <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-graph-#{report.id}"} %>
+            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-graph-<%=report.id%>"></i>
             <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-graph-<%= "#{report.id}"%>">
               <li><%= link_to "Edit", edit_user_report_graph_block_path(current_user, @report, report) %></li>
               <li><%= link_to "Delete", user_report_graph_block_path(current_user, @report, report), method: :delete %></li>
