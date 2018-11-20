@@ -85,7 +85,8 @@
 
 .search-box-field {
   font-size: 16px;
-  color: $gray;
+  border-color: $gray!important;
+  color: $dark-gray;
   padding: 5px;
   border-radius: 47px;
   width: 275px;
