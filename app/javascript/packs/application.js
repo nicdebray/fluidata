@@ -1,5 +1,8 @@
 
 import "bootstrap";
+import $  from "jquery";
+import { datepicker } from "bootstrap-datepicker";
+
 import Chartkick from "chartkick";
 window.Chartkick = Chartkick;
 import Chart from "chart.js";

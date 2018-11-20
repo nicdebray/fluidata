@@ -8,7 +8,3 @@
 
 //= require_tree .
 
-$('#sandbox-container input').datepicker({
-  maxViewMode: 2
-});
-
