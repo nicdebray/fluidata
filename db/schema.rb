@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_203716) do
     t.string "user_right"
     t.string "department"
     t.boolean "admin"
-    t.string "avatar", default: "avatar_placeholder.png"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
