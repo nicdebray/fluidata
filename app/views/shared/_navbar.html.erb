@@ -10,8 +10,9 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <% if user_signed_in? %>
     <%= render 'shared/search' %>
-
+    <% end %>
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
