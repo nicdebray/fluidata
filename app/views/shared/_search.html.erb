@@ -1,0 +1,5 @@
+<%= form_tag(user_reports_path(current_user), method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
