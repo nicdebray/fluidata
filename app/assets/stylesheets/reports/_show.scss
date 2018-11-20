@@ -15,14 +15,28 @@
   padding-right: 30px;
 }
 
-.more-options {
+
+.card-kpi-metric-title {
+  color: $orange;
+}
+
+
+.card-kpi-more-options {
   position: absolute;
   right: 5px;
   top: 5px;
 }
 
-.more-options-image {
+.card-kpi-more-options-image {
   width: 20px;
   height: 20px;
 }
 
+.card-kpi-date {
+  color: $gray;
+  font-size: 14px;
+}
+
+.card-kpi-metric-value {
+  font-size: 32px;
+}
