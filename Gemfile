@@ -19,6 +19,8 @@ gem 'google-api-client', :require => 'google/apis/analyticsreporting_v4'
 gem 'googleauth'
 gem 'groupdate'
 gem 'highcharts-rails'
+gem 'jquery'
+gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 
 gem "pundit"
