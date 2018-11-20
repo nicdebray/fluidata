@@ -59,6 +59,6 @@ class KpiBlocksController < ApplicationController
 
 
   def choice_kpi
-    @items = KpiBlock.items_hash
+    @items = KpiBlock.items_hash.sort_by { |k, v| k }
   end
 end
