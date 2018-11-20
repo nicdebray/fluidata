@@ -32,7 +32,7 @@ class ReportsController < ApplicationController
     @report.user = current_user
 
     if @report.save
-      redirect_to user_reports_path
+      redirect_to user_report_path(current_user, @report)
     else
       render :new
     end
