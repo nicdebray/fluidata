@@ -1,8 +1,45 @@
-<h1>Add text</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="top-navbar">
+        <div class="col-xs-12 col-sm-8">
+          <div class="left-top-navbar">
+            <div class="">
+              <div id="icon-company-profile"><%= image_tag ("icons/stats.svg") %></div>
+            </div>
+            <div class="left-top-navbar-title">
+              <h1>Add some text</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="right-top-navbar">
+            <div id="right-top-navbar-edit-btn">
+              <%= link_to "Back to the report", user_report_path(current_user, @report), class: "button-blue button right-top-navbar-btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row maincontentandnav">
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %> </div>
+    <div class="right-maincontent col-xs-12 col-md-10">
+      <div class="row maincontentandnav-top sticky-top sticky-offset">
+        <div class = "" id="left-sidebar-toggle">
+          <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <%= simple_form_for [current_user, @report, @text_block] do |f| %>
+          <%= f.input :content, label: "What text do you want to add?" %>
+          <%= f.button :submit %>
+          <% end %>
 
-<%= simple_form_for [current_user, @report, @text_block] do |f| %>
-<%= f.input :content, label: "What text do you want to add?" %>
-<%= f.button :submit %>
-<% end %>
-
-<%= link_to "Back to the report", user_report_path(current_user, @report) %>
+          <%= link_to "Back to the report", user_report_path(current_user, @report) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

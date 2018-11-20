@@ -1,5 +1,45 @@
-<h1>Add a KPI</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="top-navbar">
+        <div class="col-xs-12 col-sm-8">
+          <div class="left-top-navbar">
+            <div class="">
+              <div id="icon-company-profile"><%= image_tag ("icons/stats.svg") %></div>
+            </div>
+            <div class="left-top-navbar-title">
+              <h1>Add a KPI</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="right-top-navbar">
+            <div id="right-top-navbar-edit-btn">
+              <%= link_to "Back to the report", user_report_path(current_user, @report), class: "button-blue button right-top-navbar-btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row maincontentandnav">
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %> </div>
+    <div class="right-maincontent col-xs-12 col-md-10">
+      <div class="row maincontentandnav-top sticky-top sticky-offset">
+        <div class = "" id="left-sidebar-toggle">
+          <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <%= simple_form_for [current_user, @report, @kpi_block] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.input :kpi_type, as: :select, collection: @items, label_method: :first, value_method: :last %>
+          <%= f.button :submit %>
+          <% end %>
 
+<<<<<<< HEAD
 <%= simple_form_for [current_user, @report, @kpi_block] do |f| %>
 <%= f.text_field :start_date , :data => {:provide => "datepicker"}, class: 'date-picker form-control' %>
 <%= f.input :end_date %>
@@ -8,3 +48,11 @@
 <% end %>
 
 <%= link_to "Back to the report", user_report_path(current_user, @report) %>
+=======
+          <%= link_to "Back to the report", user_report_path(current_user, @report) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> 00186515515cf015c97ba5e96bbfa81627a9d560
