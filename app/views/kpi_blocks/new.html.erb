@@ -1,7 +1,7 @@
 <h1>Add a KPI</h1>
 
 <%= simple_form_for [current_user, @report, @kpi_block] do |f| %>
-<%= f.input :start_date %>
+<%= f.text_field :start_date , :data => {:provide => "datepicker"}, class: 'date-picker form-control' %>
 <%= f.input :end_date %>
 <%= f.input :kpi_type, as: :select, collection: @items, label_method: :first, value_method: :last %>
 <%= f.button :submit %>
