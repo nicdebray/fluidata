@@ -46,11 +46,9 @@
             <li class="list-group-item d-flex card-block-design">
               <div class="message">
                 <%= link_to report.content, user_report_text_block_path(current_user, @report, report) %>
-
-
                 <div class="card-kpi-more-options" >
-                  <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-#{report.id}"} %>
-                  <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-<%= "#{report.id}"%>">
+                  <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-text-#{report.id}"} %>
+                  <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-text-<%= "#{report.id}"%>">
                     <li><%= link_to "Edit", edit_user_report_text_block_path(current_user, @report, report) %></li>
                     <li><%= link_to "Delete", user_report_text_block_path(current_user, @report, report), method: :delete %></li>
                   </ul>
@@ -72,8 +70,8 @@
           </div>
           <%= report.order %>
           <div class="card-kpi-more-options" >
-            <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-#{report.id}"} %>
-            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-<%= "#{report.id}"%>">
+            <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-kpi-#{report.id}"} %>
+            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-kpi-<%= "#{report.id}"%>">
               <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
               <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
             </ul>
@@ -84,15 +82,19 @@
       <div class="row">
         <% @report.graph_blocks.each do |report| %>
         <div class="card col-xs-12 col-sm-6 col-md-4">
-          <%= GraphBlock.items_hash.key(report.graph_type)  %>
-          <br> <%= report.start_date %> </br>
-          <%= report.end_date %>
-          <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
-          <%= column_chart values %>
-          <%= report.order %>
-          <%= link_to "| Edit | ", edit_user_report_graph_block_path(current_user, @report, report) %>
-          <%= link_to "Delete ||", user_report_graph_block_path(current_user, @report, report), method: :delete %>
-
+          <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
+          <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
+          <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+          <div class="card-kpi-metric-value">
+           <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %></div>
+           <div class="card-graph-chart"> <%= column_chart values %></div>
+           <div class="card-kpi-more-options" >
+            <%= image_tag ("icons/more-options.svg"), class: "card-kpi-more-options-image card-kpi-option", data: {toggle: "dropdown-graph-#{report.id}"} %>
+            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-graph-<%= "#{report.id}"%>">
+              <li><%= link_to "Edit", edit_user_report_graph_block_path(current_user, @report, report) %></li>
+              <li><%= link_to "Delete", user_report_graph_block_path(current_user, @report, report), method: :delete %></li>
+            </ul>
+          </div>
         </div>
         <% end %>
       </div>
