@@ -17,8 +17,8 @@ class ReportsController < ApplicationController
 
   def index
     @reports = Report.where('name LIKE ?', "%#{params[:term]}%")
-    @reports1 = Report.where(starred: true).order(:updated_at)
-    @reports2 = Report.where(starred: false).order(:updated_at)
+    @reports1 = Report.where(starred: true).order(updated_at: :desc)
+    @reports2 = Report.where(starred: false).order(updated_at: :desc)
   end
 
   def toggle_starred
