@@ -43,14 +43,8 @@
         <div><%= @company.address %></div>
         <div><%= @company.vat %></div>
         <div><%= cl_image_tag @company.photo, height: 300, width: 400 %></div>
-        <div><%= @company.photo %></div>
-        <div>
-          <%= link_to "Delete", company_path,
-          method: :delete,
-          data: { confirm: "Are you sure?"} %>
-        </div>
-        <div> <%= link_to "Edit", edit_company_path %></div></div>
       </div>
     </div>
   </div>
+</div>
 

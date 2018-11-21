@@ -1,4 +1,53 @@
-<h1>Create a company</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="top-navbar">
+        <div class="col-xs-12 col-sm-8">
+          <div class="left-top-navbar">
+            <div class="">
+              <div id="icon-company-profile"><%= image_tag ("icons/group.svg") %></div>
+            </div>
+            <div class="left-top-navbar-title">
+              <h1>Create a company</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="right-top-navbar">
+            <div id="right-top-navbar-create-btn">
+              <%= link_to "Back to Profile", user_path(current_user), class: "button-blue button right-top-navbar-btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row maincontentandnav">
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %>
+    </div>
+    <div class="right-maincontent col-xs-12 col-md-10">
+      <div class = "" id="left-sidebar-toggle">
+        <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
+      </div>
+      <div>
+        <%= render 'shared/companies_form', company: @company %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'shared/companies_form', company: @company %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
