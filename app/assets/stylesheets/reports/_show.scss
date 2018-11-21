@@ -42,13 +42,30 @@
   height: 20px;
 }
 
+.card-kpi-date-placeholder {
+  display: flex;
+  justify-content: flex-start;
+  color: $dark-gray;
+}
+
+.card-kpi-date-icon-image {
+  height: 10px;
+  width: 10px;
+  margin-top: -10px;
+  margin-right: 5px;
+}
+
 .card-kpi-date {
-  color: $gray;
   font-size: 14px;
 }
 
+.card-kpi-date-sepatator {
+  margin: -3px;
+  padding: 0px 5px;
+}
+
 .card-kpi-metric-value {
-  font-size: 32px;
+  font-size: 38px;
 }
 
 .fa-ellipsis-v {
@@ -67,4 +84,5 @@
 
 .sections-titles {
   font-size: 20px;
+  padding-left: 15px;
 }
