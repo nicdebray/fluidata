@@ -34,7 +34,7 @@
           <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
         </div>
         <div class="report-actions">
-          <%= link_to "+ Text", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
+          <%= link_to "+ Todo", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
           <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
           <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
         </div>
@@ -80,9 +80,9 @@
             <div class="card-kpi-metric-value">
               <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
             </div>
-<!-- Implementing the periode % -->
+            <!-- Implementing the periode % -->
             <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
-              <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.difdays[:computed_start_date].strftime('%v') %></div>
+            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.difdays[:computed_start_date].strftime('%v') %></div>
             <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.difdays[:computed_end_date].strftime('%v') %></div>
 
             <div class="card-kpi-metric-value">
@@ -90,7 +90,7 @@
               <div> <%= report.evolution %> <p> % </p> </div>
             </div>
 
-<!-- End of test -->
+            <!-- End of test -->
             <%= report.order %>
             <div class="card-kpi-more-options" >
               <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-kpi-<%=report.id%>"></i>
