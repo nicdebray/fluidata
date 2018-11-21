@@ -112,7 +112,8 @@
                             <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
                             <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
                               <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
-                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete %></li>
+                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete,
+                                data: {confirm: "Are you sure?"} %></li>
                             </ul>
                           </div>
                         </div>
@@ -148,7 +149,8 @@
                             <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
                             <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
                               <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
-                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete %></li>
+                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete,
+                                data: {confirm: "Are you sure?"} %></li>
                             </ul>
                           </div>
                         </div>
@@ -191,7 +193,8 @@
                             <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
                             <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
                               <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
-                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete %></li>
+                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete,
+                                data: {confirm: "Are you sure?"} %></li>
                             </ul>
                           </div>
                         </div>
