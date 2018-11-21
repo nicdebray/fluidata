@@ -39,9 +39,8 @@
     <% if @reports.empty? %>
     <div class="container-fluid" id="no-report">
      <div class="col-lg-12">
-       <div class="row">
-        <p> Build your first report by adding Text, KPI or Graph blocks</p>
-        <i class="fas fa-arrow-circle-up" id="arrow"></i>
+<p> Build your first report by adding Text, KPI or Graph blocks</p>
+         <%= link_to image_tag("icons/news.svg"), new_user_report_path(current_user), class: "homepage-icons" %>
       </div>
     </div>
   </div>
