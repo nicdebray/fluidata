@@ -64,8 +64,8 @@
         <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
           <div class="card card-kpi card-wrapper">
             <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
-            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
-            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date.strftime('%v') %></div>
+            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date.strftime('%v') %></div>
             <div class="card-kpi-metric-value">
               <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
             </div>
@@ -86,8 +86,8 @@
         <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
           <div class="card card-kpi card-wrapper">
             <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
-            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
-            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date.strftime('%v') %></div>
+            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date.strftime('%v') %></div>
             <div class="card-kpi-metric-value">
              <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %></div>
              <div class="card-graph-chart"> <%= column_chart values %></div>
