@@ -41,7 +41,7 @@
       </div>
       <div class="row report-blocks-row">
         <div class="col-md-12">
-          <h4>My todo's</h4>
+          <div class="sections-titles">My todo's</div>
           <% if @report.text_blocks.empty?  %>
           <p> <i> <small> Add your first <%= link_to "Todo", new_user_report_text_block_path(current_user, @report) %> </small> </i> </p>
           <% end %>
@@ -65,7 +65,7 @@
       </div>
       <div class="row report-blocks-row">
         <div class="col-md-12">
-          <h4>My performance</h4>
+          <div class="sections-titles">My performance</div>
           <% if @report.graph_blocks.empty? && @report.kpi_blocks.empty? %>
           <p> <i> <small> Add your first <%= link_to "KPI", new_user_report_kpi_block_path(current_user, @report) %> or your first <%= link_to "Graph", new_user_report_kpi_block_path(current_user, @report) %> </small> </i> </p>
           <% end %>
