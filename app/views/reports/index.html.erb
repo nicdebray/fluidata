@@ -98,7 +98,6 @@
 </div>
 </div>
 <% end %>
-
 <div class="row">
   <div class="report-text-index-titles">
     <p>All reports:</p>
@@ -183,7 +182,6 @@
               <span class="fa fa-star checked" id="star_toggle"></span>
               <% else %>
               <span class="fa fa-star unchecked"></span>
-              <% end %>
               <% end %>
               <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
               </p>
