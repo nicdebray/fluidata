@@ -17,7 +17,7 @@
         <div class="right-top-navbar">
           <div id="right-top-navbar-edit-btn">
             <% if params[:term].present? %>
-            <%= link_to "Back to all reports", user_reports_path(current_user), class: "button-green button right-top-navbar-btn" %>
+            <%= link_to "Back to all reports", user_reports_path(current_user), class: "button-blue button right-top-navbar-btn" %>
             <% end %>
             <%= link_to "Create new report", new_user_report_path(current_user), class: "button-green button right-top-navbar-btn" %>
           </div>
@@ -218,6 +218,7 @@
 </div>
 </div>
 </div>
+
 <% end %>
 </div>
 

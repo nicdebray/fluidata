@@ -1,21 +1,57 @@
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 offset-sm-3">
-      <h2>Profile Page</h2>
-      <% if current_user.try(:avatar).try(:url).nil?  %>
-        <%= image_tag("avatar_placeholder.png", :class => "avatar-big") %>
-      <% else %>
-        <%= image_tag(current_user.avatar.url, :class => "avatar-big") %>
-      <% end %>
-      <ul>
-        <li class="profile-list"><%= current_user.first_name %> <%= current_user.last_name %></li>
-        <li class="profile-list"><%= current_user.email %></li>
-        <li class="profile-list"><%= current_user.department %></li>
-      </ul>
-      <%= link_to "Edit your profile", edit_user_path(current_user) %>
+    <div class="col-lg-12">
+      <div class="top-navbar">
+        <div class="col-xs-12 col-sm-8">
+          <div class="left-top-navbar">
+            <div class="">
+              <div id="icon-company-profile"><%= image_tag ("icons/stats.svg") %></div>
+            </div>
+            <div class="left-top-navbar-title">
+              <h1>Profile Page</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="right-top-navbar">
+            <div id="right-top-navbar-edit-btn">
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "button-blue button right-top-navbar-btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row maincontentandnav">
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %> </div>
+    <div class="right-maincontent col-xs-12 col-md-10">
+      <div class="row maincontentandnav-top sticky-top sticky-offset">
+        <div class = "" id="left-sidebar-toggle">
+          <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 offset-sm-3">
+          <div class="card-block-design card-profile">
+            <div class="profile-avatar-pic">
+              <% if current_user.try(:avatar).try(:url).nil?  %>
+              <%= image_tag("avatar_placeholder.png", class: "avatar-profile-page") %>
+              <% else %>
+              <%= image_tag(current_user.avatar.url, class: "avatar-profile-page") %>
+              <% end %>
+            </div>
+            <ul>
+              <li class="profile-list"><p>First name: <%= current_user.first_name %></p></li>
+              <li class="profile-list"><p>Last name: <%= current_user.last_name %></p></li>
+              <li class="profile-list"><p>Email: <%= current_user.email %></p></li>
+              <li class="profile-list"><p>Department: <%= current_user.department %></p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 
 
