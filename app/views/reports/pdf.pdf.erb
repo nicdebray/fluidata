@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <%= javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js" %>
+    <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js" %>
+  <title>Fluidata - Take smart business decision</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+</head>
+<body>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="top-navbar">
+        <div class="col-xs-12 col-sm-8">
+          <h1><%= @report.name %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row maincontentandnav">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="list-group padding-top-show">
+          <% @report.text_blocks.each do |report| %>
+            <li class="list-group-item d-flex card-block-design">
+              <div class="text-block-txt-content">
+                <%= report.content %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row report-blocks-row">
+      <% @report.kpi_blocks.each do |report| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
+          <div class="card card-kpi card-wrapper">
+            <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
+            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date  %></div>
+            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+            <div class="card-kpi-metric-value">
+              <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
+            </div>
+            <%= report.order %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row report-blocks-row">
+      <% @report.graph_blocks.each do |report| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
+          <div class="card card-kpi card-wrapper">
+            <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
+            <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date %></div>
+            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date %></div>
+            <div class="card-kpi-metric-value">
+              <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %></div>
+            <div class="card-graph-chart"> <%= column_chart values %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
