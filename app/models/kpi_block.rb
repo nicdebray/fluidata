@@ -4,11 +4,48 @@ class KpiBlock < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
+  def difdays
+    nbrdays = (self.end_date - self.start_date).to_i.days
+    computed_start_date = start_date - nbrdays
+    computed_end_date = end_date - nbrdays
+    { computed_start_date: computed_start_date,  computed_end_date: computed_end_date }
+  end
+
+  def evolution
+    evolution = ((call_ga_v4_kpi_diff.reports.first.data.totals.first.values.first.to_f - call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_f) / call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_f) * 100
+    return evolution.round(2)
+  end
+
   def call_ga_v4_kpi
     # Set the date range - this is always required for report requests
     date_range = Google::Apis::AnalyticsreportingV4::DateRange.new(
       start_date: start_date,
       end_date: end_date
+      )
+    # Set the metric
+    metric = Google::Apis::AnalyticsreportingV4::Metric.new(
+      expression: kpi_type
+      )
+    # Build up our report request and a add country filter
+    report_request = Google::Apis::AnalyticsreportingV4::ReportRequest.new(
+      view_id: '179537367',
+      sampling_level: 'DEFAULT',
+      date_ranges: [date_range],
+      metrics: [metric]
+      )
+    # Create a new report request
+    request = Google::Apis::AnalyticsreportingV4::GetReportsRequest.new(
+      { report_requests: [report_request] }
+      )
+    # Make API call.
+    response = $google_client.batch_get_reports(request)
+  end
+
+  def call_ga_v4_kpi_diff
+    # Set the date range - this is always required for report requests
+    date_range = Google::Apis::AnalyticsreportingV4::DateRange.new(
+      start_date: difdays[:computed_start_date],
+      end_date: difdays[:computed_end_date]
       )
     # Set the metric
     metric = Google::Apis::AnalyticsreportingV4::Metric.new(

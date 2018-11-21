@@ -80,6 +80,17 @@
             <div class="card-kpi-metric-value">
               <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
             </div>
+<!-- Implementing the periode % -->
+            <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
+              <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.difdays[:computed_start_date].strftime('%v') %></div>
+            <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.difdays[:computed_end_date].strftime('%v') %></div>
+
+            <div class="card-kpi-metric-value">
+              <%= report.call_ga_v4_kpi_diff.reports.first.data.totals.first.values.first.to_i %>
+              <div> <%= report.evolution %> <p> % </p> </div>
+            </div>
+
+<!-- End of test -->
             <%= report.order %>
             <div class="card-kpi-more-options" >
               <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-kpi-<%=report.id%>"></i>
