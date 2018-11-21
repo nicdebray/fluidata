@@ -31,10 +31,10 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6 new-report-form">
           <%= simple_form_for [current_user, @report] do |f| %>
           <%= f.input :name, label: "Report name", error: 'Project name is mandatory, please specify one' %>
-          <%= f.button :submit %>
+          <%= f.button :submit, class:"button-green button" %>
           <% end %>
         </div>
       </div>
