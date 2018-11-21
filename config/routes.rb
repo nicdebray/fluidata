@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :reports do
       member do
+        get  "get_pdf", to: "reports#get_pdf"
         get "toggle_starred",to: "reports#toggle_starred"
       end
       resources :text_blocks

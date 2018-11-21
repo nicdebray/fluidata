@@ -8,10 +8,10 @@ class ReportsController < ApplicationController
 
   def show
     respond_to do |format|
+
+      format.pdf{ render(template: 'reports/pdf') }
       format.html
-      format.pdf do
-        render pdf: 'Company Detail Report', layout: 'pdf_layout.html'
-      end
+      format.json
     end
   end
 
@@ -56,6 +56,11 @@ class ReportsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def get_pdf
+      send_data render_to_string pdf: "some_file_name", template: "reports/pdf", encoding: "UTF-8"
+
   end
 
   private
