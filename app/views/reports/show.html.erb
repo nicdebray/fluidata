@@ -42,6 +42,9 @@
       <div class="row report-blocks-row">
         <div class="col-md-12">
           <h4>My todo's</h4>
+          <% if @report.text_blocks.empty?  %>
+          <p> <i> <small> Add your first <%= link_to "Todo", new_user_report_text_block_path(current_user, @report) %> </small> </i> </p>
+          <% end %>
         </div>
         <% @report.text_blocks.each do |report| %>
         <div class="col-xs-12 col-sm-4 col-md-3 card-block-align">
@@ -63,6 +66,9 @@
       <div class="row report-blocks-row">
         <div class="col-md-12">
           <h4>My performance</h4>
+          <% if @report.graph_blocks.empty? && @report.kpi_blocks.empty? %>
+          <p> <i> <small> Add your first <%= link_to "KPI", new_user_report_kpi_block_path(current_user, @report) %> or your first <%= link_to "Graph", new_user_report_kpi_block_path(current_user, @report) %> </small> </i> </p>
+          <% end %>
         </div>
         <% @report.kpi_blocks.each do |report| %>
         <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
