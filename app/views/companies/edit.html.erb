@@ -17,6 +17,10 @@
             <div id="right-top-navbar-create-btn">
               <%= link_to "Back to Company", companies_path, class: "button-blue button right-top-navbar-btn" %>
             </div>
+            <div id="right-top-navbar-delete-btn">
+              <%= link_to "Delete", company_path, method: :delete,
+              data: {confirm: "Are you sure?"}, class: "button-red button right-top-navbar-btn" %>
+            </div>
           </div>
         </div>
       </div>
