@@ -53,8 +53,14 @@
 
 .fa-ellipsis-v {
   color: $gray;
+  text-align: right;
+  padding-right: 5px;
 }
 
-.text-block-txt-content {
-  position: absolute;
+.card-text-block {
+  background-color: rgba(249,208,38, 0.5);
+}
+
+.card-text-options {
+  color: $dark-gray;
 }
