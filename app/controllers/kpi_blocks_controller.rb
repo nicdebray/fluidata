@@ -17,8 +17,8 @@ class KpiBlocksController < ApplicationController
   def create
     @report = Report.find(params[:report_id])
     @kpi_block = KpiBlock.new(kpi_block_params)
-    @kpi_block.start_date = Date.strptime(kpi_block_params[:start_date], '%m/%d/%Y')
-    @kpi_block.end_date = Date.strptime(kpi_block_params[:end_date], '%m/%d/%Y')
+    @kpi_block.start_date = Date.strptime(kpi_block_params[:start_date], '%d/%m/%Y')
+    @kpi_block.end_date = Date.strptime(kpi_block_params[:end_date], '%d/%m/%Y')
 
     @kpi_block.report = Report.find(params[:report_id])
     if @kpi_block.save!
@@ -31,8 +31,8 @@ class KpiBlocksController < ApplicationController
   def update
     if @kpi_block.update(kpi_block_params)
       redirect_to user_report_path(current_user, @report)
-      @kpi_block.start_date = Date.strptime(kpi_block_params[:start_date], '%m/%d/%Y')
-      @kpi_block.end_date = Date.strptime(kpi_block_params[:end_date], '%m/%d/%Y')
+      @kpi_block.start_date = Date.strptime(kpi_block_params[:start_date], '%d/%m/%Y')
+      @kpi_block.end_date = Date.strptime(kpi_block_params[:end_date], '%d/%m/%Y')
     else
       render :new
     end
