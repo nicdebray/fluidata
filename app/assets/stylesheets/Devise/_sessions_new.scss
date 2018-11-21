@@ -1,0 +1,33 @@
+.login-card {
+  margin-top: 25px;
+  border-radius: 10px;
+}
+
+.login-card:hover {
+  transition-duration: 1s;
+  box-shadow: 0px 0px 8px #9a9a9a;
+}
+
+
+.card-login-title {
+  position: absolute;
+}
+
+#login-title {
+  color: $orange;
+  padding: 20px;
+}
+
+.login-form {
+  margin: 100px 50px 50px 50px;
+}
+
+.form-remember-me {
+  font-size: 12px;
+}
+
+
+.login-shared-links {
+  margin-top: 20px;
+  font-size: 16px;
+}
