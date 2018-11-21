@@ -16,6 +16,7 @@ module Fluidata
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.middleware.use WickedPdf::Middleware
+   Mime::Type.register "application/pdf", :pdf
 
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -108,5 +108,5 @@
 
 
   <div>
-    <%= link_to "Click to export as pdf", user_report_path(current_user, @report, format: :pdf), target: '_blank', class: 'btn btn-default' %>
+    <%= link_to "Click to export as pdf", get_pdf_user_report_path(current_user, @report, format: :pdf), target: '_blank', class: 'btn btn-default' %>
   </div>
