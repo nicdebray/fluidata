@@ -27,6 +27,7 @@
   </div>
 </div>
 
+
 <div class="row maincontentandnav">
   <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %> </div>
   <div class="right-maincontent col-xs-12 col-md-10">
@@ -35,178 +36,189 @@
         <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
       </div>
     </div>
-
-    <div class="col-lg-12">
-      <div class="row">
-        <div class="report-text-index-titles">
-          <p>Key reports:</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="card-block col-sm-6 col-md-3">
-          <% if @reports1[-1] %>
-            <%= link_to user_report_path(current_user.id, @reports1[-1]) do %>
-              <div class="card-block-design">
-                <div class="card-title"><%= @reports1[-1].name %></div>
-                <div class="card-action button"> <%= link_to "Edit", edit_user_report_path(current_user, @reports1[-1]) %></div>
-                <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-1]), method: :delete,
-                data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="card-block col-sm-6 col-md-3">
-          <% if @reports1[-2] %>
-            <%= link_to user_report_path(current_user.id, @reports1[-2]) do %>
-              <div class="card-block-design">
-                <div class="card-title"><%= @reports1[-2].name %></div>
-                <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-2]) %> </div>
-                <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-2]), method: :delete,
-                data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="card-block col-sm-6 col-md-3">
-          <% if @reports1[-3] %>
-            <%= link_to user_report_path(current_user.id, @reports1[-3]) do %>
-              <div class="card-block-design">
-                <div class="card-title"><%= @reports1[-3].name %></div>
-                <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-3]) %> </div>
-                <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-3]), method: :delete,
-                data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="report-text-index-titles">
-          <p>All reports:</p>
-        </div>
-      </div>
-      <div class="row push-footer">
-        <div class="col-lg-12">
-          <ul class="list-group">
-            <% if params[:term].present? %>
-              <% @reports.each do |report| %>
-                <div>
-                  <li class="list-group-item d-flex card-block-design">
-                    <div class="message">
-                      <div>
-                        <div>
-                          <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
-                          </p>
-                        </div>
-                        <div>
-                         <p class="card-text">Last updated at <%= report.updated_at%></p>
-                        </div>
-                      </div>
-                      <div class="badge_">
-                        <div class="message-status">
-                          <div class="card-kpi-more-options" >
-                            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
-                            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
-                              <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
-                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete,
-                                data: {confirm: "Are you sure?"} %></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </div>
-              <% end %>
-            <% else %>
-              <% @reports1.each do |report| %>
-                <div>
-                  <li class="list-group-item d-flex card-block-design">
-                    <div class="message">
-                      <div>
-                        <div>
-                          <%= link_to toggle_starred_user_report_path(current_user, report), remote: true do %>
-                            <% if report.starred === true %>
-                              <span class="fa fa-star checked" id="star_toggle"></span>
-                            <% else %>
-                              <span class="fa fa-star unchecked"></span>
-                            <% end %>
-                          <% end %>
-                          <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
-                          </p>
-                        </div>
-                        <div>
-                          <p class="card-text">Last updated at <%= report.updated_at %></p>
-                        </div>
-                      </div>
-                      <div class="badge_">
-                        <div class="message-status">
-                          <div class="card-kpi-more-options" >
-                            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
-                            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
-                              <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
-                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete,
-                                data: {confirm: "Are you sure?"} %></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </div>
-              <% end %>
-              <% @reports2.each do |report| %>
-                <div>
-                  <li class="list-group-item d-flex card-block-design">
-                    <div class="message">
-                      <div>
-                        <div>
-                          <%= link_to toggle_starred_user_report_path(current_user, report), remote: true do %>
-                            <% if report.starred === true %>
-                              <span class="fa fa-star checked" id="star_toggle"></span>
-                            <% else %>
-                              <span class="fa fa-star unchecked"></span>
-                            <% end %>
-                          <% end %>
-                          <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
-                          </p>
-                        </div>
-                        <div>
-                          <p class="card-text">Last updated at <%= report.updated_at%></p>
-                        </div>
-                      </div>
-                      <script>
-                        const ColorStar = (event) => {
-                          event.currentTarget.classList.toggle("checked");
-                        };
-                        document.querySelectorAll("span").forEach((check) => {
-                          check.addEventListener("click", ColorStar);
-                        });
-                      </script>
-                      <div class="badge_">
-                        <div class="message-status">
-                          <div class="card-kpi-more-options" >
-                            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
-                            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
-                              <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
-                              <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete,
-                                data: {confirm: "Are you sure?"} %></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </div>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
+    <% if @reports.empty? %>
+    <div class="container-fluid" id="no-report">
+     <div class="col-lg-12">
+       <div class="row">
+          <p> Create your first template </p>
+          <i class="fas fa-arrow-circle-up" id="arrow"></i>
       </div>
     </div>
   </div>
+
+  <% else %>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="report-text-index-titles">
+        <p>Key reports:</p>
+      </div>
+    </div>
+    <% if @reports1.empty? %>
+    <div> <p> <i> <small> No key reports selected </small> </i> </p> </div>
+    <% else %>
+    <div class="row">
+      <div class="card-block col-sm-6 col-md-3">
+        <% if @reports1[-1] %>
+        <%= link_to user_report_path(current_user.id, @reports1[-1]) do %>
+        <div class="card-block-design">
+          <div class="card-title"><%= @reports1[-1].name %></div>
+          <div class="card-action button"> <%= link_to "Edit", edit_user_report_path(current_user, @reports1[-1]) %></div>
+          <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-1]), method: :delete,
+          data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="card-block col-sm-6 col-md-3">
+      <% if @reports1[-2] %>
+      <%= link_to user_report_path(current_user.id, @reports1[-2]) do %>
+      <div class="card-block-design">
+        <div class="card-title"><%= @reports1[-2].name %></div>
+        <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-2]) %> </div>
+        <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-2]), method: :delete,
+        data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="card-block col-sm-6 col-md-3">
+    <% if @reports1[-3] %>
+    <%= link_to user_report_path(current_user.id, @reports1[-3]) do %>
+    <div class="card-block-design">
+      <div class="card-title"><%= @reports1[-3].name %></div>
+      <div class="card-action button"><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-3]) %> </div>
+      <div class="card-trash">  <i><%= link_to "",user_report_path(current_user, @reports1[-3]), method: :delete,
+      data: { confirm: "Are you sure?"}, class: "fas fa-trash" %></i>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+</div>
+<% end %>
+<div class="row">
+  <div class="report-text-index-titles">
+    <p>All reports:</p>
+  </div>
+</div>
+<div class="row push-footer">
+  <div class="col-lg-12">
+    <ul class="list-group">
+      <% if params[:term].present? %>
+      <% @reports.each do |report| %>
+      <div>
+        <li class="list-group-item d-flex card-block-design">
+          <div class="message">
+            <div>
+              <div>
+                <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
+                </p>
+              </div>
+              <div>
+               <p class="card-text">Last updated at <%= report.updated_at%></p>
+             </div>
+           </div>
+           <div class="badge_">
+            <div class="message-status">
+              <div class="card-kpi-more-options" >
+                <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
+                <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
+                  <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
+                  <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </div>
+    <% end %>
+    <% else %>
+    <% @reports1.each do |report| %>
+    <div>
+      <li class="list-group-item d-flex card-block-design">
+        <div class="message">
+          <div>
+            <div>
+              <%= link_to toggle_starred_user_report_path(current_user, report), remote: true do %>
+              <% if report.starred === true %>
+              <span class="fa fa-star checked" id="star_toggle"></span>
+              <% else %>
+              <span class="fa fa-star unchecked"></span>
+              <% end %>
+              <% end %>
+              <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
+              </p>
+            </div>
+            <div>
+              <p class="card-text">Last updated at <%= report.updated_at %></p>
+            </div>
+          </div>
+          <div class="badge_">
+            <div class="message-status">
+              <div class="card-kpi-more-options" >
+                <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
+                <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
+                  <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
+                  <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </div>
+    <% end %>
+    <% @reports2.each do |report| %>
+    <div>
+      <li class="list-group-item d-flex card-block-design">
+        <div class="message">
+          <div>
+            <div>
+              <%= link_to toggle_starred_user_report_path(current_user, report), remote: true do %>
+              <% if report.starred === true %>
+              <span class="fa fa-star checked" id="star_toggle"></span>
+              <% else %>
+              <span class="fa fa-star unchecked"></span>
+              <% end %>
+              <p><strong><%= link_to report.name, user_report_path(current_user.id, report) %></strong>
+              </p>
+            </div>
+            <div>
+              <p class="card-text">Last updated at <%= report.updated_at%></p>
+            </div>
+          </div>
+          <script>
+            const ColorStar = (event) => {
+              event.currentTarget.classList.toggle("checked");
+            };
+            document.querySelectorAll("span").forEach((check) => {
+              check.addEventListener("click", ColorStar);
+            });
+          </script>
+          <div class="badge_">
+            <div class="message-status">
+              <div class="card-kpi-more-options" >
+                <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
+                <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
+                  <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
+                  <li><%= link_to "Delete", user_report_path(current_user, report), method: :delete %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </div>
+    <% end %>
+    <% end %>
+  </ul>
+</div>
+</div>
+</div>
+<% end %>
+</div>
+
 </div>
