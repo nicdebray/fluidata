@@ -31,18 +31,22 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-12">
-          <% if current_user.try(:avatar).try(:url).nil?  %>
-          <%= image_tag("avatar_placeholder.png", :class => "avatar-big") %>
-          <% else %>
-          <%= image_tag(current_user.avatar.url, :class => "avatar-big") %>
-          <% end %>
-          <ul>
-            <li class="profile-list"><%= current_user.first_name %> <%= current_user.last_name %></li>
-            <li class="profile-list"><%= current_user.email %></li>
-            <li class="profile-list"><%= current_user.department %></li>
-          </ul>
-
+        <div class="col-xs-12 col-sm-6 offset-sm-3">
+          <div class="card-block-design card-profile">
+            <div class="profile-avatar-pic">
+              <% if current_user.try(:avatar).try(:url).nil?  %>
+              <%= image_tag("avatar_placeholder.png", class: "avatar-profile-page") %>
+              <% else %>
+              <%= image_tag(current_user.avatar.url, class: "avatar-profile-page") %>
+              <% end %>
+            </div>
+            <ul>
+              <li class="profile-list"><p>First name: <%= current_user.first_name %></p></li>
+              <li class="profile-list"><p>Last name: <%= current_user.last_name %></p></li>
+              <li class="profile-list"><p>Email: <%= current_user.email %></p></li>
+              <li class="profile-list"><p>Department: <%= current_user.department %></p></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

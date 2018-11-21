@@ -1,0 +1,18 @@
+.avatar-profile-page {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-profile {
+  padding: 20px 50px 50px 20px;
+  height: 100%;
+}
+
+.profile-avatar-pic {
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $gray;
+  text-align: center;
+}
