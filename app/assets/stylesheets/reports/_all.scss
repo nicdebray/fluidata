@@ -56,6 +56,10 @@
   font-size: 20px;
 }
 
+.reports-title-name-title:hover {
+  font-weight: bolder;
+}
+
 .reports-card-top {
   background-color: #586ADA;
 }
@@ -63,6 +67,11 @@
 .reports-card-top-title {
   color: white;
   font-size: 20px;
+}
+
+.reports-card-top-title:hover {
+  font-weight: bolder;
+
 }
 
 .reports-card-top-text-title {
@@ -73,4 +82,12 @@
   position: absolute;
   right: 5px;
   top: 5px;
+}
+
+.report-text-index-titles {
+  padding-bottom: 15px;
+}
+
+.list-group {
+  padding-right: 15px;
 }

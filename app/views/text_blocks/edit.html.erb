@@ -8,7 +8,7 @@
               <div id="icon-company-profile"><%= image_tag ("icons/stats.svg") %></div>
             </div>
             <div class="left-top-navbar-title">
-              <h1>Update text</h1>
+              <h1>Update your To-do</h1>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <%= simple_form_for [current_user, @report, @text_block] do |f| %>
           <%= f.input :content, label: "Update your current content" %>
           <%= f.button :submit, class: "button-green button" %>

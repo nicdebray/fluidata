@@ -21,12 +21,23 @@
   color: $orange;
 }
 
+.card-kpi-metric-title-comparison {
+  color: #fa8958;
+}
+
 .card-wrapper {
   padding: 15px;
 }
 
 .report-blocks-row {
   margin-top: 20px;
+  padding-right: 15px;
+}
+
+.report-data-blocks-row {
+  display: flex;
+  padding-left: 10px;
+  width: 100%;
 }
 
 .card-block-align {
@@ -115,4 +126,40 @@
   top: 5px;
 }
 
+.card-kpi-metric-value-comp-arrow-down {
+  padding-left: 5px;
+  color: $gray;
+}
 
+.sections-performance-block {
+  margin-top: 20px;
+}
+
+.empty-kpi-graph-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+
+.empty-to-do {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.first-empty-report-text {
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+.empty-kpi-graph {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.performance-empty {
+  padding-left: 15px;
+}
