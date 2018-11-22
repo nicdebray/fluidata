@@ -34,9 +34,9 @@
         <div class="col-lg-6">
           <%= simple_form_for [current_user, @report, @kpi_block] do |f| %>
           <p>Start date</p>
-          <%= f.input :start_date,as: :string, input_html: { id: "datetimepicker1",  data: {provide: "datepicker" , "date-format": "dd/mm/yyyy"}}, label: false%>
+          <%= f.input :start_date,as: :string, input_html: { autocomplete: "off," id: "datetimepicker1",  data: {provide: "datepicker" , "date-format": "dd/mm/yyyy"}}, label: false%>
           <p>End date</p>
-          <%= f.input :end_date,as: :string, input_html: { id: "datetimepicker1",  data: {provide: "datepicker" , "date-format": "dd/mm/yyyy"}}, label: false%>
+          <%= f.input :end_date,as: :string, input_html: { autocomplete: "off," id: "datetimepicker1",  data: {provide: "datepicker" , "date-format": "dd/mm/yyyy"}}, label: false%>
           <%= f.input :kpi_type, as: :select, collection: @items, label_method: :first, value_method: :last %>
           <%= f.button :submit, class: "button-green button" %>
           <% end %>
