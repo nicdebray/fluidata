@@ -87,11 +87,14 @@
                 <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
               </div>
               <div class="card-kpi-comparison-perc-placeholder", data-toggle="dropdown-comparison-<%=report.id%>">
-                <div class="card-kpi-metric-value-comp-perc" ><span>compare</span></div>
+                <div class="card-kpi-comparison-perc-placeholder">
+                  <div> <%= report.evolution %> </div>
+                  <div class="card-kpi-metric-value-comp-perc"><span>%</span></div>
+                </div>
               </div>
             </div>
             <!-- Implementing the periode % -->
-            <div class="card-kpi-comparison-block id="dropdown-comparison-<%=report.id%>">
+            <div class="card-kpi-comparison-block" id="dropdown-comparison-<%= report.id %>" >
               <div class="card-kpi-metric-title"> vs previous period</div>
               <div class="card-kpi-date-placeholder">
                 <div class="card-kpi-date-icon">
