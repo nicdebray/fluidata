@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
   end
 
   def index
+    @report = Report.new
     @reports = Report.where('name LIKE ?', "%#{params[:term]}%")
     @reports1 = Report.where(starred: true).order(updated_at: :desc)
     @reports2 = Report.where(starred: false).order(updated_at: :desc)
@@ -58,8 +59,8 @@ class ReportsController < ApplicationController
   end
 
   def get_pdf
-      @report = Report.find(params[:id])
-      send_data render_to_string pdf: "report", template: "reports/pdf.pdf", encoding: "UTF-8"
+    @report = Report.find(params[:id])
+    send_data render_to_string pdf: "report", template: "reports/pdf.pdf", encoding: "UTF-8"
   end
 
   private
