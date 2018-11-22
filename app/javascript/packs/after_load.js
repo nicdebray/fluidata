@@ -66,4 +66,25 @@ function setDropDownOptions() {
 }
 
 
+setDropDownComparison();
+
+function setDropDownComparison() {
+
+  let comp  = document.querySelectorAll(".card-kpi-comparison-perc-placeholder")
+  let compblck = document.querySelectorAll(".card-kpi-comparison-block")
+
+  comp.forEach(function(item) { item.addEventListener( "click", function(event) {
+    let id = event.currentTarget.dataset.toggle
+    let modal = document.querySelector(`#${id}`)
+    console.log(modal.style.display)
+    if( modal.style.display == "block" ) {
+      modal.style.display  = "none"
+    } else {
+      modal.style.display  = "block"
+    }
+  });
+});
+
+}
+
 
