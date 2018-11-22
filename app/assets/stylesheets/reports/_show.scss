@@ -135,3 +135,31 @@
   margin-top: 20px;
 }
 
+.empty-kpi-graph-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+
+.empty-to-do {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.first-empty-report-text {
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+.empty-kpi-graph {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.performance-empty {
+  padding-left: 15px;
+}
