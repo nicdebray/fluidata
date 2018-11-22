@@ -33,8 +33,8 @@
 
 .card-kpi-more-options {
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 20px;
+  top: 20px;
 }
 
 .card-kpi-more-options-image {
@@ -68,6 +68,10 @@
   font-size: 38px;
 }
 
+.card-kpi-comparison-metric-value {
+ font-size: 32px;
+}
+
 .fa-ellipsis-v {
   color: $gray;
   text-align: right;
@@ -86,3 +90,24 @@
   font-size: 20px;
   padding-left: 15px;
 }
+
+.card-kpi-comparison-placeholder {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card-kpi-comparison-perc-placeholder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: -9px;
+  padding-left: 13px;
+}
+
+.card-graph-more-options {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+
