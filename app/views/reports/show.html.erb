@@ -34,16 +34,16 @@
           <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
         </div>
         <div class="report-actions">
-          <%= link_to "+ Todo", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
+          <%= link_to "+ To-do", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
           <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
           <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
         </div>
       </div>
       <div class="row report-blocks-row">
         <div class="col-md-12">
-          <div class="sections-titles">My todo's</div>
+          <div class="sections-titles">My to-do's</div>
           <% if @report.text_blocks.empty?  %>
-          <p> <i> <small> Add your first <%= link_to "Todo", new_user_report_text_block_path(current_user, @report) %> </small> </i> </p>
+          <p> <i> <small> Add your first <%= link_to "To-do", new_user_report_text_block_path(current_user, @report) %> </small> </i> </p>
           <% end %>
         </div>
         <% @report.text_blocks.each do |report| %>
@@ -87,11 +87,14 @@
                 <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
               </div>
               <div class="card-kpi-comparison-perc-placeholder", data-toggle="dropdown-comparison-<%=report.id%>">
-                <div class="card-kpi-metric-value-comp-perc" ><span>compare</span></div>
+                <div class="card-kpi-comparison-perc-placeholder">
+                  <div> <%= report.evolution %> </div>
+                  <div class="card-kpi-metric-value-comp-perc"><span>%</span></div>
+                </div>
               </div>
             </div>
             <!-- Implementing the periode % -->
-            <div class="card-kpi-comparison-block id="dropdown-comparison-<%=report.id%>">
+            <div class="card-kpi-comparison-block" id="dropdown-comparison-<%= report.id %>" >
               <div class="card-kpi-metric-title"> vs previous period</div>
               <div class="card-kpi-date-placeholder">
                 <div class="card-kpi-date-icon">
