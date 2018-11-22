@@ -91,6 +91,10 @@
   padding-left: 15px;
 }
 
+.card-kpi-comparison-block {
+  display: none;
+}
+
 .card-kpi-comparison-placeholder {
   display: flex;
   justify-content: flex-start;
@@ -100,7 +104,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: -9px;
+  margin-bottom: -6px;
   padding-left: 13px;
 }
 
