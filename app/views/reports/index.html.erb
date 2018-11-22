@@ -61,35 +61,31 @@
       <%= link_to user_report_path(current_user.id, @reports1[-1]) do %>
       <div class="card-block-design reports-card-top">
         <div class="card-title reports-card-top-title"><%= @reports1[-1].name %></div>
-        <div class="card-trash">
-          <div class="card-kpi-more-options" >
-            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=@reports1[-1].id%>"></i>
-            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{@reports1[-1].id}"%>">
-              <li><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-1]) %></li>
-              <li><%= link_to "Delete", user_report_path(current_user, @reports1[-1]), method: :delete %></li>
-            </ul>
-          </div>
+        <% end %>
+        <div class="card-kpi-more-options" >
+          <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-key-<%=@reports1[-1].id%>"></i>
+          <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-key-<%= "#{@reports1[-1].id}"%>">
+            <li><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-1]) %></li>
+            <li><%= link_to "Delete", user_report_path(current_user, @reports1[-1]), method: :delete %></li>
+          </ul>
         </div>
       </div>
     </div>
-    <% end %>
     <% end %>
     <div class="card-block col-sm-6 col-md-4">
       <% if @reports1[-2] %>
       <%= link_to user_report_path(current_user.id, @reports1[-2]) do %>
       <div class="card-block-design reports-card-top">
         <div class="card-title reports-card-top-title"><%= @reports1[-2].name %></div>
-        <div class="card-trash">
-          <div class="card-kpi-more-options" >
-            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=@reports1[-2].id%>"></i>
-            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{@reports1[-2].id}"%>">
-              <li><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-2]) %></li>
-              <li><%= link_to "Delete", user_report_path(current_user, @reports1[-2]), method: :delete %></li>
-            </ul>
-          </div>
+        <% end %>
+        <div class="card-kpi-more-options" >
+          <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-key-<%=@reports1[-2].id%>"></i>
+          <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-key-<%= "#{@reports1[-2].id}"%>">
+            <li><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-2]) %></li>
+            <li><%= link_to "Delete", user_report_path(current_user, @reports1[-2]), method: :delete %></li>
+          </ul>
         </div>
       </div>
-      <% end %>
       <% end %>
     </div>
     <div class="card-block col-sm-6 col-md-4">
@@ -97,19 +93,15 @@
       <%= link_to user_report_path(current_user.id, @reports1[-3]) do %>
       <div class="card-block-design reports-card-top">
         <div class="card-title reports-card-top-title"><%= @reports1[-3].name %></div>
-
-        <div class="card-trash">
-
-          <div class="card-kpi-more-options" >
-            <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=@reports1[-3].id%>"></i>
-            <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{@reports1[-3].id}"%>">
-              <li><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-3]) %></li>
-              <li><%= link_to "Delete", user_report_path(current_user, @reports1[-3]), method: :delete %></li>
-            </ul>
-          </div>
+        <% end %>
+        <div class="card-kpi-more-options" >
+          <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-key-<%=@reports1[-3].id%>"></i>
+          <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-key-<%= "#{@reports1[-3].id}"%>">
+            <li><%= link_to "Edit", edit_user_report_path(current_user, @reports1[-3]) %></li>
+            <li><%= link_to "Delete", user_report_path(current_user, @reports1[-3]), method: :delete %></li>
+          </ul>
         </div>
       </div>
-      <% end %>
       <% end %>
     </div>
   </div>
@@ -138,7 +130,7 @@
              </div>
              <div class="badge_">
               <div class="message-status">
-                <div class="card-kpi-more-options" >
+                <div class="card-kpi-more-options-all-reports-list" >
                   <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
                   <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
                     <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
@@ -176,7 +168,7 @@
             </div>
             <div class="badge_">
               <div class="message-status">
-                <div class="card-kpi-more-options" >
+                <div class="card-kpi-more-options-all-reports-list" >
                   <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
                   <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
                     <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
@@ -221,7 +213,7 @@
             </script>
             <div class="badge_">
               <div class="message-status">
-                <div class="card-kpi-more-options" >
+                <div class="card-kpi-more-options-all-reports-list" >
                   <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-report-<%=report.id%>"></i>
                   <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-report-<%= "#{report.id}"%>">
                     <li><%= link_to "Edit", edit_user_report_path(current_user, report) %></li>
