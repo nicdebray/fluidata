@@ -34,9 +34,9 @@
           <i class="fas fa-caret-left" id="left-sidebar-toggle-left-arrow"></i>
         </div>
         <div class="report-actions">
-          <%= link_to "+ Todo", new_user_report_text_block_path(current_user, @report), class:"button button-yellow report-actions-btn"%>
-          <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
-          <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-yellow report-actions-btn" %>
+          <%= link_to "+ Todo", new_user_report_text_block_path(current_user, @report), class:"button button-purple report-actions-btn"%>
+          <%= link_to "+ KPI", new_user_report_kpi_block_path(current_user, @report), class:"button button-purple report-actions-btn" %>
+          <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-purple report-actions-btn" %>
         </div>
       </div>
       <div class="row report-blocks-row">
@@ -130,7 +130,7 @@
 
       <div class="row report-blocks-row">
         <% @report.graph_blocks.each do |report| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
+        <div class="col-xs-12 col-sm-6 card-block-align">
           <div class="card card-kpi card-wrapper">
             <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
             <div class="card-kpi-date-placeholder">
