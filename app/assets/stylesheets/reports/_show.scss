@@ -31,11 +31,13 @@
 
 .report-blocks-row {
   margin-top: 20px;
+  padding-right: 15px;
 }
 
-.report-text-blocks-row {
+.report-data-blocks-row {
   display: flex;
   padding-left: 10px;
+  width: 100%;
 }
 
 .card-block-align {
@@ -127,5 +129,9 @@
 .card-kpi-metric-value-comp-arrow-down {
   padding-left: 5px;
   color: $gray;
+}
+
+.sections-performance-block {
+  margin-top: 20px;
 }
 
