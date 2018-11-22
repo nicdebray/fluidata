@@ -21,12 +21,21 @@
   color: $orange;
 }
 
+.card-kpi-metric-title-comparison {
+  color: #fa8958;
+}
+
 .card-wrapper {
   padding: 15px;
 }
 
 .report-blocks-row {
   margin-top: 20px;
+}
+
+.report-text-blocks-row {
+  display: flex;
+  padding-left: 10px;
 }
 
 .card-block-align {
@@ -115,4 +124,8 @@
   top: 5px;
 }
 
+.card-kpi-metric-value-comp-arrow-down {
+  padding-left: 5px;
+  color: $gray;
+}
 
