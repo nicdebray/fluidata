@@ -41,9 +41,9 @@
       </div>
       <div class="row report-blocks-row">
         <div class="col-md-12">
-          <div class="sections-titles">My todo's</div>
+          <div class="sections-titles">My to-do's</div>
           <% if @report.text_blocks.empty?  %>
-          <p> <i> <small> Add your first <%= link_to "Todo", new_user_report_text_block_path(current_user, @report) %> </small> </i> </p>
+          <p> <i> <small> Add your first <%= link_to "To-do", new_user_report_text_block_path(current_user, @report) %> </small> </i> </p>
           <% end %>
         </div>
         <% @report.text_blocks.each do |report| %>
