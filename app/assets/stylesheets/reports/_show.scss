@@ -23,6 +23,7 @@
 
 .card-kpi-metric-title-comparison {
   color: #fa8958;
+  font-size: 16px;
 }
 
 .card-wrapper {
@@ -83,6 +84,7 @@
 
 .card-kpi-comparison-metric-value {
  font-size: 32px;
+ color: rgba(43,45,80, 0.8);
 }
 
 .fa-ellipsis-v {
@@ -162,4 +164,9 @@
 
 .performance-empty {
   padding-left: 15px;
+}
+
+.card-kpi-date-comparison {
+  color: rgba(43,45,80, 0.5);
+  font-size: 14px;
 }

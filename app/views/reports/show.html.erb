@@ -120,9 +120,9 @@
                         <div class="card-kpi-date-icon">
                           <%= image_tag("icons/agenda.svg", class: "card-kpi-date-icon-image") %>
                         </div>
-                        <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.difdays[:computed_start_date].strftime('%v') %></div>
-                        <div class="card-kpi-date-sepatator"> <span>-</span></div>
-                        <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.difdays[:computed_end_date].strftime('%v') %></div>
+                        <div class="card-kpi-date card-kpi-date-comparison" id="card-kpi-date-start"> <%= report.difdays[:computed_start_date].strftime('%v') %></div>
+                        <div class="card-kpi-date-sepatator card-kpi-date-comparison"> <span>-</span></div>
+                        <div class="card-kpi-date card-kpi-date-comparison" id="card-kpi-date-end"> <%= report.difdays[:computed_end_date].strftime('%v') %></div>
                       </div>
                       <div class="card-kpi-comparison-placeholder">
                         <div class="card-kpi-comparison-metric-value">
