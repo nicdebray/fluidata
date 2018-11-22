@@ -34,7 +34,7 @@
         <div class="col-lg-4">
           <%= simple_form_for [current_user, @report, @text_block] do |f| %>
           <%= f.input :content, label: "What needs to be done?" %>
-          <%= f.button :submit, class: "button-green button" %>
+          <%= f.button :submit, value: "Create new to-do", class: "button-green button" %>
           <% end %>
         </div>
       </div>
