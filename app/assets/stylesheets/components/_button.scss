@@ -102,3 +102,21 @@
 .button-blue:focus {
   color: #70d1fb;
 }
+
+
+// purple
+
+.button-purple {
+  background-color: rgba(88,106,218,0.02);
+  border: solid 1px $purple;
+  color: $purple;
+}
+
+.button-purple:hover {
+  color: #4357d5;
+  box-shadow: 1px 1px 7px #828fe3;
+}
+
+.button-purple:focus {
+  color: #4457d5;
+}
