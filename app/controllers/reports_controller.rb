@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
   end
 
   def show
+    @text_block = TextBlock.new
     respond_to do |format|
       format.pdf{ render(template: 'reports/pdf') }
       format.html
