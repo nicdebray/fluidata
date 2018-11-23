@@ -15,3 +15,8 @@ yarn-error.log
 .env*
 service_account_cred.json
 test
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
