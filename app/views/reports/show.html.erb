@@ -30,7 +30,8 @@
     </div>
   </div>
   <div class="row maincontentandnav">
-    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %> </div>
+    <div class="left-sidebar d-none d-md-block col-md-2 sidebar-expanded" id="left-sidebar-menu-toggle sidebar-container"> <%= render 'shared/sidebar' %>
+    </div>
     <div class="right-maincontent col-xs-12 col-md-10">
       <div class="row maincontentandnav-top sticky-top sticky-offset">
         <div class = "" id="left-sidebar-toggle">
@@ -46,16 +47,17 @@
         <div class="col-md-12">
           <div class="sections-titles">My to-do's</div>
           <% if @report.text_blocks.empty?  %>
-          <div class="empty-to-do">
-            <div class="empty-kpi-graph-icon">
-              <%= image_tag ("icons/paper-plane.svg") %>
+            <div class="empty-to-do">
+              <div class="empty-kpi-graph-icon">
+                <%= image_tag ("icons/paper-plane.svg") %>
+              </div>
+              <div class="first-empty-report-text">
+                <span>Add your first <%= link_to "To-do", new_user_report_text_block_path(current_user, @report) %></span>
+              </div>
             </div>
-            <div class="first-empty-report-text">
-              <span>Add your first <%= link_to "To-do", new_user_report_text_block_path(current_user, @report) %></span></div>
-              <% end %>
-            </div>
-            <div class="report-data-blocks-row">
-              <% @report.text_blocks.each do |report| %>
+          <% end %>
+          <div class="report-data-blocks-row">
+            <% @report.text_blocks.each do |report| %>
               <div class="col-xs-12 col-sm-4 col-md-3 card-block-align">
                 <div class="card card-kpi card-wrapper card-text-block">
                   <div class="text-block-txt-content">
@@ -70,110 +72,109 @@
                   </div>
                 </div>
               </div>
-              <% end %>
-            </div>
-          </div>
-          <div class="row report-blocks-row">
-            <div class="col-md-12">
-              <div class="sections-titles sections-performance-block performance-empty">My performance</div>
-              <% if @report.graph_blocks.empty? && @report.kpi_blocks.empty? %>
-              <div class="empty-kpi-graph">
-                <div class="empty-kpi-graph-icon">
-                  <%= image_tag ("icons/target.svg") %>
-                </div>
-                <div class="first-empty-report-text">
-                  <span>Add your first <%= link_to "KPI", new_user_report_kpi_block_path(current_user, @report) %> or your first <%= link_to "Graph", new_user_report_kpi_block_path(current_user, @report) %></span> </div>
-                </div>
-                <% end %>
-              </div>
-
-              <div class="report-data-blocks-row">
-
-                <% @report.kpi_blocks.each do |report| %>
-                <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
-                  <div class="card card-kpi card-wrapper">
-                    <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
-                    <div class="card-kpi-date-placeholder">
-                      <div class="card-kpi-date-icon">
-                        <%= image_tag("icons/agenda.svg", class: "card-kpi-date-icon-image") %>
-                      </div>
-                      <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date.strftime('%v') %></div>
-                      <div class="card-kpi-date-sepatator"> <span>-</span></div>
-                      <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date.strftime('%v') %></div>
-                    </div>
-                    <div class="card-kpi-comparison-placeholder">
-                      <div class="card-kpi-metric-value">
-                        <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
-                      </div>
-                      <div class="card-kpi-comparison-perc-placeholder", data-toggle="dropdown-comparison-<%=report.id%>">
-                        <div class="card-kpi-comparison-perc-placeholder">
-                          <div> <%= report.evolution %> </div>
-                          <div class="card-kpi-metric-value-comp-perc"><span>%</span></div>
-                          <div class="card-kpi-metric-value-comp-arrow-down"><i class="fas fa-caret-down"></i></div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- comparison period KPI block % -->
-                    <div class="card-kpi-comparison-block" id="dropdown-comparison-<%= report.id %>" >
-                      <div class="card-kpi-metric-title card-kpi-metric-title-comparison"> vs previous period</div>
-                      <div class="card-kpi-date-placeholder">
-                        <div class="card-kpi-date-icon">
-                          <%= image_tag("icons/agenda.svg", class: "card-kpi-date-icon-image") %>
-                        </div>
-                        <div class="card-kpi-date card-kpi-date-comparison" id="card-kpi-date-start"> <%= report.difdays[:computed_start_date].strftime('%v') %></div>
-                        <div class="card-kpi-date-sepatator card-kpi-date-comparison"> <span>-</span></div>
-                        <div class="card-kpi-date card-kpi-date-comparison" id="card-kpi-date-end"> <%= report.difdays[:computed_end_date].strftime('%v') %></div>
-                      </div>
-                      <div class="card-kpi-comparison-placeholder">
-                        <div class="card-kpi-comparison-metric-value">
-                          <%= report.call_ga_v4_kpi_diff.reports.first.data.totals.first.values.first.to_i %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End of comparison period KPI block -->
-                  <%= report.order %>
-                  <div class="card-kpi-more-options" >
-                    <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-kpi-<%=report.id%>"></i>
-                    <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-kpi-<%= "#{report.id}"%>">
-                      <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
-                      <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
-                    </ul>
-                  </div>
-                </div>
-                <% end %>
-              </div>
-            </div>
-
-            <div class="row report-blocks-row">
-              <div class="report-data-blocks-row">
-                <% @report.graph_blocks.each do |report| %>
-                <div class="col-xs-12 col-sm-6 card-block-align">
-                  <div class="card card-kpi card-wrapper">
-                    <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
-                    <div class="card-kpi-date-placeholder">
-                      <div class="card-kpi-date-icon">
-                        <%= image_tag("icons/agenda.svg", class: "card-kpi-date-icon-image") %>
-                      </div>
-                      <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date.strftime('%v') %></div>
-                      <div class="card-kpi-date-sepatator"> <span>-</span></div>
-                      <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date.strftime('%v') %></div>
-                    </div>
-                    <div class="card-kpi-metric-value">
-                     <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %></div>
-                     <div class="card-graph-chart"> <%= column_chart values %></div>
-                     <div class="card-graph-more-options" >
-                      <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-graph-<%=report.id%>"></i>
-                      <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-graph-<%= "#{report.id}"%>">
-                        <li><%= link_to "Edit", edit_user_report_graph_block_path(current_user, @report, report) %></li>
-                        <li><%= link_to "Delete", user_report_graph_block_path(current_user, @report, report), method: :delete %></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <% end %>
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
+      <div class="row report-blocks-row">
+        <div class="col-md-12">
+          <div class="sections-titles sections-performance-block performance-empty">My performance</div>
+          <% if @report.graph_blocks.empty? && @report.kpi_blocks.empty? %>
+            <div class="empty-kpi-graph">
+              <div class="empty-kpi-graph-icon">
+                <%= image_tag ("icons/target.svg") %>
+              </div>
+              <div class="first-empty-report-text">
+                <span>Add your first <%= link_to "KPI", new_user_report_kpi_block_path(current_user, @report) %> or your first <%= link_to "Graph", new_user_report_kpi_block_path(current_user, @report) %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="report-data-blocks-row">
+        <% @report.kpi_blocks.each do |report| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 card-block-align">
+            <div class="card card-kpi card-wrapper">
+              <div class="card-kpi-metric-title"> <%= KpiBlock.items_hash.key(report.kpi_type)  %></div>
+              <div class="card-kpi-date-placeholder">
+                <div class="card-kpi-date-icon">
+                  <%= image_tag("icons/agenda.svg", class: "card-kpi-date-icon-image") %>
+                </div>
+                <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date.strftime('%v') %></div>
+                <div class="card-kpi-date-sepatator"> <span>-</span></div>
+                <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date.strftime('%v') %></div>
+              </div>
+              <div class="card-kpi-comparison-placeholder">
+                <div class="card-kpi-metric-value">
+                  <%= report.call_ga_v4_kpi.reports.first.data.totals.first.values.first.to_i %>
+                </div>
+                <div class="card-kpi-comparison-perc-placeholder", data-toggle="dropdown-comparison-<%=report.id%>">
+                  <div class="card-kpi-comparison-perc-placeholder">
+                    <div> <%= report.evolution %> </div>
+                    <div class="card-kpi-metric-value-comp-perc"><span>%</span></div>
+                    <div class="card-kpi-metric-value-comp-arrow-down"><i class="fas fa-caret-down"></i></div>
+                  </div>
+                </div>
+              </div>
+              <!-- comparison period KPI block % -->
+              <div class="card-kpi-comparison-block" id="dropdown-comparison-<%= report.id %>" >
+                <div class="card-kpi-metric-title card-kpi-metric-title-comparison"> vs previous period</div>
+                <div class="card-kpi-date-placeholder">
+                  <div class="card-kpi-date-icon">
+                    <%= image_tag("icons/agenda.svg", class: "card-kpi-date-icon-image") %>
+                  </div>
+                  <div class="card-kpi-date card-kpi-date-comparison" id="card-kpi-date-start"> <%= report.difdays[:computed_start_date].strftime('%v') %></div>
+                  <div class="card-kpi-date-sepatator card-kpi-date-comparison"> <span>-</span></div>
+                  <div class="card-kpi-date card-kpi-date-comparison" id="card-kpi-date-end"> <%= report.difdays[:computed_end_date].strftime('%v') %></div>
+                </div>
+                <div class="card-kpi-comparison-placeholder">
+                  <div class="card-kpi-comparison-metric-value">
+                    <%= report.call_ga_v4_kpi_diff.reports.first.data.totals.first.values.first.to_i %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of comparison period KPI block -->
+            <%= report.order %>
+            <div class="card-kpi-more-options" >
+              <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-kpi-<%=report.id%>"></i>
+              <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-kpi-<%= "#{report.id}"%>">
+                <li><%= link_to "Edit", edit_user_report_kpi_block_path(current_user, @report, report) %></li>
+                <li><%= link_to "Delete", user_report_kpi_block_path(current_user, @report, report), method: :delete %></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="report-data-blocks-row">
+        <% @report.graph_blocks.each do |report| %>
+          <div class="col-xs-12 col-sm-6 card-block-align">
+            <div class="card card-kpi card-wrapper">
+              <div class="card-kpi-metric-title"><%= GraphBlock.items_hash.key(report.graph_type)  %> </div>
+              <div class="card-kpi-date-placeholder">
+                <div class="card-kpi-date-icon">
+                  <%= image_tag("icons/agenda.svg", class: "card-kpi-date-icon-image") %>
+                </div>
+                <div class="card-kpi-date" id="card-kpi-date-start"> <%= report.start_date.strftime('%v') %></div>
+                <div class="card-kpi-date-sepatator"> <span>-</span></div>
+                <div class="card-kpi-date" id="card-kpi-date-end"> <%= report.end_date.strftime('%v') %></div>
+              </div>
+              <div class="card-kpi-metric-value">
+               <% values = report.call_ga_v4_graph.reports.first.data.rows.map do |item| [item.dimensions, item.metrics[0].values] end %>
+              </div>
+              <div class="card-graph-chart"> <%= column_chart values %></div>
+              <div class="card-graph-more-options" >
+                <i class="fas fa-ellipsis-v card-kpi-more-options-image card-kpi-option", data-toggle="dropdown-graph-<%=report.id%>"></i>
+                <ul class="dropdown-menu dropdown  dropdown-menu-right navbar-wagon-dropdown-menu dropdown-more-options" id="dropdown-graph-<%= "#{report.id}"%>">
+                  <li><%= link_to "Edit", edit_user_report_graph_block_path(current_user, @report, report) %></li>
+                  <li><%= link_to "Delete", user_report_graph_block_path(current_user, @report, report), method: :delete %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
