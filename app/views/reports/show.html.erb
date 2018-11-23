@@ -43,7 +43,7 @@
           <%= link_to "+ Graph", new_user_report_graph_block_path(current_user, @report), class:"button button-purple report-actions-btn" %>
         </div>
       </div>
-      <div class="row report-blocks-row">
+       <div class="row report-blocks-row">
         <div class="col-md-12">
           <div class="sections-titles">My to-do's</div>
           <% if @report.text_blocks.empty?  %>
@@ -52,7 +52,33 @@
                 <%= image_tag ("icons/paper-plane.svg") %>
               </div>
               <div class="first-empty-report-text">
-                <span>Add your first <%= link_to "To-do", new_user_report_text_block_path(current_user, @report) %></span>
+                <span>Add your first </span>
+              <!-- Button trigger modal -->
+
+                <a  onclick="newrepFun()" data-toggle="modal" data-target="#newrep" id="clickable">
+                  To-do
+                </a>
+                <!-- Modal -->
+                <div class="modal" id="newrep" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New to-do</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                       <%= simple_form_for [current_user, @report, @text_block] do |f| %>
+                       <%= f.input :content, label: "What needs to be done?" %>
+                       <%= f.button :submit, value: "Create new to-do", class: "button-green button" %>
+                       <% end %>
+                     </div>
+                     <div class="modal-footer">
+                     </div>
+                   </div>
+                 </div>
+               </div>
               </div>
             </div>
           <% end %>
