@@ -14,3 +14,8 @@ yarn-error.log
 .byebug_history
 .env*
 test
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
