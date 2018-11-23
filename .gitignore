@@ -13,6 +13,7 @@ node_modules
 yarn-error.log
 .byebug_history
 .env*
+service_account_cred.json
 test
 /public/packs
 /public/packs-test
