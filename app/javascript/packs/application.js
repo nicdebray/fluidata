@@ -26,4 +26,5 @@ function setDropDown() {
   })
 
 }
-$("#datepicker1").datepicker({ format: 'mm/dd/yyyy'});
+$("#datepicker1").datepicker({ format: 'mm/dd/yyyy' });
+

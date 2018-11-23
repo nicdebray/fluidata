@@ -70,15 +70,15 @@
                       </div>
                       <div class="modal-body">
                        <%= simple_form_for [current_user, @report, @text_block] do |f| %>
-                       <%= f.input :content, label: "What needs to be done?" %>
-                       <%= f.button :submit, value: "Create new to-do", class: "button-green button" %>
+                         <%= f.input :content, label: "What needs to be done?" %>
+                         <%= f.button :submit, value: "Create new to-do", class: "button-green button" %>
                        <% end %>
-                     </div>
-                     <div class="modal-footer">
-                     </div>
-                   </div>
-                 </div>
-               </div>
+                      </div>
+                      <div class="modal-footer">
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
